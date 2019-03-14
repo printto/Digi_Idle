@@ -7,7 +7,9 @@ Digivice-like pet game.
 - Get your partner to walk around in your farm.
 
 ### Screenshot
-Coming very soon~
+UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon Idle)
+:-------------------------:|:-------------------------:
+!<img text-align="center" src="https://github.com/printto/Digi_Idle/blob/master/screenshot1.jpg" alt="drawing" width="200" />  |  <img text-align="center" src="https://github.com/printto/Digi_Idle/blob/master/screenshot2.gif" alt="drawing" width="200" />
 
 ### V1.0 Changes
 - No changes at the moment. Initial commit.
