@@ -1,4 +1,4 @@
-package com.printto.printmov.digi_idle.utils;
+package com.printto.printmov.digi_idle;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.digimon.Terriermon;
+import com.printto.printmov.digi_idle.utils.SaveManager;
 
 public class CreateDigimonActivity extends AppCompatActivity {
 

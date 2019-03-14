@@ -14,12 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.printto.printmov.digi_idle.digimon.Digimon;
-import com.printto.printmov.digi_idle.utils.CreateDigimonActivity;
 import com.printto.printmov.digi_idle.utils.SaveManager;
+import com.printto.printmov.digi_idle.utils.WalkEngine;
 
-import java.util.Random;
-
-public class MainActivity extends AppCompatActivity implements FarmUI {
+public class MainActivity extends AppCompatActivity implements MainActivityController {
 
     SaveManager saveManager;
 
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements FarmUI {
             Log.d("Initialize Size", sizeX+","+sizeY);
             digimon.initializeScreen(this, sizeX, sizeY);
             walkEngine = new WalkEngine(digimon);
-            walkEngine.start();
+            walkEngine.walk();
         }
         else{
             Intent intent = new Intent(this, CreateDigimonActivity.class);

@@ -1,6 +1,6 @@
 package com.printto.printmov.digi_idle;
 
-public interface FarmUI {
+public interface MainActivityController {
 
     public void walkWalker(float toWalkX, float toWalkY);
     public void setWalkerPic(int resID);

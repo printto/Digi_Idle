@@ -1,10 +1,8 @@
 package com.printto.printmov.digi_idle.digimon;
 
-import android.animation.ObjectAnimator;
-import android.graphics.drawable.AnimationDrawable;
 import android.util.Log;
 
-import com.printto.printmov.digi_idle.FarmUI;
+import com.printto.printmov.digi_idle.MainActivityController;
 import com.printto.printmov.digi_idle.food.Food;
 import com.printto.printmov.digi_idle.utils.WalkingModes;
 
@@ -39,27 +37,16 @@ public abstract class Digimon implements Serializable {
     float screenSizeX = 0;
     float screenSizeY = 0;
 
-    FarmUI activity;
+    MainActivityController activity;
 
     /**
      * Initialize the screen size and walker view.
      * @param activity UI activity that Digimon is on
      */
-    public void initializeScreen(FarmUI activity, float screenSizeX, float screenSizeY){
+    public void initializeScreen(MainActivityController activity, float screenSizeX, float screenSizeY){
         this.activity = activity;
         this.screenSizeX = screenSizeX;
         this.screenSizeY = screenSizeY;
-    }
-
-    /**
-     * Walk the Digimon on the sreen.
-     * Screen size must be initialized by calling initializeScreen() before using this method.
-     */
-    public void walk(){
-        int randomedMode = random.nextInt(modeCount);
-        Log.d("Walking mode","Randomed mode: "+randomedMode);
-        renderAnimation(randomedMode);
-        generateWalk(randomedMode);
     }
 
     /**
@@ -74,7 +61,7 @@ public abstract class Digimon implements Serializable {
      */
     public abstract int getProfilePic();
 
-    private void generateWalk(int mode){
+    public void generateWalk(int mode){
         float randomXY = MIN_WALK_DISTANCE + random.nextFloat() * (MAX_WALK_DISTANCE - MIN_WALK_DISTANCE);
         Log.d("Walk distance", "randomed: "+randomXY);
         float randomX = randomXY;
@@ -187,4 +174,7 @@ public abstract class Digimon implements Serializable {
         return new Date().getTime() - birth.getTime();
     }
 
+    public int getModeCount() {
+        return modeCount;
+    }
 }
