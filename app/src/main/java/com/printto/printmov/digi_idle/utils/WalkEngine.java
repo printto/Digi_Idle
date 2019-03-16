@@ -27,7 +27,7 @@ public class WalkEngine {
                 digimon.renderAnimation(randomedMode);
                 digimon.generateWalk(randomedMode);
             }
-        },0,5000);
+        },0,3000);
     }
 
     public void randomPoses(){
@@ -37,7 +37,7 @@ public class WalkEngine {
                 int randomedMode = random.nextInt(digimon.getModeCount());
                 digimon.renderAnimation(randomedMode);
             }
-        },0,5000);
+        },0,3000);
     }
 
 }

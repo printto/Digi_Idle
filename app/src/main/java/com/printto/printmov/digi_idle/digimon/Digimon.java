@@ -2,7 +2,7 @@ package com.printto.printmov.digi_idle.digimon;
 
 import android.util.Log;
 
-import com.printto.printmov.digi_idle.MainActivityController;
+import com.printto.printmov.digi_idle.DigimonViewController;
 import com.printto.printmov.digi_idle.food.Food;
 import com.printto.printmov.digi_idle.utils.WalkingModes;
 
@@ -13,18 +13,22 @@ import java.util.Random;
 public abstract class Digimon implements Serializable {
 
     final int MIN_WALK_DISTANCE = 0;
-    final int MAX_WALK_DISTANCE = 300;
+    final int MAX_WALK_DISTANCE = 200;
 
     String name = "";
-    int modeCount = 8;
+    int modeCount = 10;
 
     int attack = 0;
     int defense = 0;
+    int hp = 5;
+    int maxHp = 5;
     int maxFullness = 60;
     int maxEnergy = 10;
 
     int fullness = 60;
     int energy = 10;
+    int mood = 10;
+
     boolean isSick = false;
     boolean isSleeping = false;
 
@@ -37,13 +41,34 @@ public abstract class Digimon implements Serializable {
     float screenSizeX = 0;
     float screenSizeY = 0;
 
-    MainActivityController activity;
+    DigimonViewController activity;
+
+    public Digimon(int attack, int defense, int maxHp, int maxEnergy, int maxFullness, Date lastFeed, Date lastEnergized, Date birth){
+        this.attack = attack;
+        this.defense = defense;
+        this.maxHp = maxHp;
+        this.maxEnergy = maxEnergy;
+        this.lastFeed = lastFeed;
+        this.lastEnergized = lastEnergized;
+        this.birth = birth;
+        this.maxFullness = maxFullness;
+        initializeInformationsOnCreate();
+    }
+
+    public Digimon(){
+        lastFeed = new Date();
+        lastEnergized = new Date();
+        birth = new Date();
+        initializeInformationsOnCreate();
+    }
+
+    protected abstract void initializeInformationsOnCreate();
 
     /**
      * Initialize the screen size and walker view.
      * @param activity UI activity that Digimon is on
      */
-    public void initializeScreen(MainActivityController activity, float screenSizeX, float screenSizeY){
+    public void initializeWalkingArea(DigimonViewController activity, float screenSizeX, float screenSizeY){
         this.activity = activity;
         this.screenSizeX = screenSizeX;
         this.screenSizeY = screenSizeY;
@@ -129,7 +154,7 @@ public abstract class Digimon implements Serializable {
         walkWalker(toWalkX, toWalkY);
     }
 
-    private void walkWalker(float toWalkX, float toWalkY){
+    protected void walkWalker(float toWalkX, float toWalkY){
         activity.walkWalker(toWalkX, toWalkY);
     }
 
@@ -150,6 +175,8 @@ public abstract class Digimon implements Serializable {
         this.energy += food.energy;
         this.attack += food.attack;
         this.defense += food.defense;
+        this.hp += food.hp;
+        this.maxHp += food.maxHp;
         this.maxFullness += food.maxFullness;
     }
 
@@ -162,7 +189,7 @@ public abstract class Digimon implements Serializable {
     }
 
 //    public boolean isEgg(){
-//        if( new Date().getTime() - birth.getTime() <= 300000 ) return true;
+//        if( new Date().getTime() - birth.getTime() <= 100000 ) return true;
 //        return false;
 //    }
 
@@ -177,4 +204,61 @@ public abstract class Digimon implements Serializable {
     public int getModeCount() {
         return modeCount;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public int getMaxFullness() {
+        return maxFullness;
+    }
+
+    public int getMaxEnergy() {
+        return maxEnergy;
+    }
+
+    public int getFullness() {
+        return fullness;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public boolean isSick() {
+        return isSick;
+    }
+
+    public boolean isSleeping() {
+        return isSleeping;
+    }
+
+    public Date getLastFeed() {
+        return lastFeed;
+    }
+
+    public Date getLastEnergized() {
+        return lastEnergized;
+    }
+
+    public Date getBirth() {
+        return birth;
+    }
+
 }

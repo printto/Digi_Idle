@@ -1,6 +1,6 @@
 package com.printto.printmov.digi_idle;
 
-public interface MainActivityController {
+public interface DigimonViewController {
 
     public void walkWalker(float toWalkX, float toWalkY);
     public void setWalkerPic(int resID);

@@ -2,13 +2,12 @@ package com.printto.printmov.digi_idle;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,65 +16,55 @@ import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 import com.printto.printmov.digi_idle.utils.WalkEngine;
 
-public class MainActivity extends AppCompatActivity implements DigimonViewController {
-
-    SaveManager saveManager;
+public class StatusActivity extends AppCompatActivity implements DigimonViewController {
 
     Digimon digimon;
     Player player;
 
+    TextView textView;
     ImageView walker;
-    ImageView profilePic;
-    TextView nameText;
 
-    WalkEngine walkEngine;
     AnimationDrawable walkerAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        setContentView(R.layout.activity_status);
 
+        SaveManager save = new SaveManager();
+        save.loadState();
+        digimon = save.getDigimon();
+        player = save.getPlayer();
+        float sizeX = 50;
+        digimon.initializeWalkingArea(this, sizeX,10);
+        setTitle(player.getName() + "'s Status");
+
+        textView = findViewById(R.id.textView);
         walker = findViewById(R.id.walker);
-        profilePic = findViewById(R.id.profileImage);
-        nameText = findViewById(R.id.nameText);
 
-        saveManager = new SaveManager();
+        textView.setMovementMethod(new ScrollingMovementMethod());
 
-        if(saveManager.loadState()){
-            digimon = saveManager.getDigimon();
-            player = saveManager.getPlayer();
-            nameText.setText(player.getName());
-            profilePic.setImageResource(digimon.getProfilePic());
-            float sizeX = (getApplicationContext().getResources().getDisplayMetrics().widthPixels / 2) - 40;
-            float sizeY = (getApplicationContext().getResources().getDisplayMetrics().heightPixels / 2) - 300;
-            Log.d("Initialize Size", sizeX+","+sizeY);
-            digimon.initializeWalkingArea(this, sizeX, sizeY);
-            walkEngine = new WalkEngine(digimon);
-            walkEngine.walk();
-        }
-        else{
-            Intent intent = new Intent(this, CreateDigimonActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
+        WalkEngine walkEngine = new WalkEngine(digimon);
+        walkEngine.walk();
 
-    public void statusBtnClicked(View view){
-        Intent intent = new Intent(this, StatusActivity.class);
-        startActivity(intent);
-    }
-
-    public void feedBtnClicked(View view){
+        textView.setText("Partner: "+digimon.getName()
+                +"\n\n Fullness: "+digimon.getFullness() + "/" + digimon.getMaxFullness()
+                +"\n\n HP: "+digimon.getHp() + "/" + digimon.getMaxHp()
+                +"\n Attack: "+digimon.getAttack()
+                +"\n Defense: "+digimon.getDefense()
+                +"\n\n Birth: "+digimon.getBirth()
+                +"\n Age: "+digimon.getAge()
+                +"\n\n Energy: "+digimon.getEnergy() + "/" + digimon.getMaxEnergy()
+                +"\n\n Level: "+player.level
+                +"\n Exp: "+player.exp);
 
     }
 
-    public void fightBtnClicked(View view){
-
+    public void onBackBtnClicked(View view){
+        this.finish();
     }
 
-    public void sleepBtnClicked(View view){
+    public void onDigivolveClicked(View view){
 
     }
 

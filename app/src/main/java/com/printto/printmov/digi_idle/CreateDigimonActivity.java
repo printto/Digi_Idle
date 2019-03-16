@@ -14,6 +14,8 @@ import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.digimon.Terriermon;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 
+import java.util.Date;
+
 public class CreateDigimonActivity extends AppCompatActivity {
 
     SaveManager saveManager;
@@ -40,7 +42,7 @@ public class CreateDigimonActivity extends AppCompatActivity {
 
     public void terriermonSelected(View view){
         if(!nameInput.getText().toString().equals("")){
-            digimon = new Terriermon();
+            digimon = new Terriermon(0,0,0,0,new Date(),new Date(),new Date());
             createSave(digimon);
         }
         else{
