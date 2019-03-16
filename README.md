@@ -5,6 +5,7 @@ Digivice-like pet game
 - Create and load save
 - Choosing the starter partner
 - Get your partner to walk around in your farm
+- [Debug] Save editor enabled for testing sprites
 
 ### Current Progress
 - Digivolution system
