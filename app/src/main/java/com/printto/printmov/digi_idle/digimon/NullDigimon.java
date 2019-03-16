@@ -8,7 +8,7 @@ public class NullDigimon extends Digimon {
 
     @Override
     protected void initializeInformationsOnCreate() {
-        name = "Null Digimon";
+        name = "Not found";
         modeCount = 1;
     }
 
@@ -16,7 +16,7 @@ public class NullDigimon extends Digimon {
     public void renderAnimation(int mode) {
         switch(mode){
             default:
-                activity.setWalkerPic(R.drawable.soondigimon);
+                activity.setWalkerPic(R.drawable.soondigimon_ani);
         }
     }
 

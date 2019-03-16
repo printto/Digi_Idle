@@ -12,8 +12,8 @@ import java.util.Random;
 
 public abstract class Digimon implements Serializable {
 
-    final int MIN_WALK_DISTANCE = 0;
-    final int MAX_WALK_DISTANCE = 200;
+    final int MIN_WALK_DISTANCE = 10;
+    final int MAX_WALK_DISTANCE = 150;
 
     String name = "";
     int modeCount = 10;
@@ -31,6 +31,7 @@ public abstract class Digimon implements Serializable {
 
     boolean isSick = false;
     boolean isSleeping = false;
+    boolean isDied = false;
 
     Date lastFeed;
     Date lastEnergized;
@@ -43,7 +44,7 @@ public abstract class Digimon implements Serializable {
 
     DigimonViewController activity;
 
-    public Digimon(int attack, int defense, int maxHp, int maxEnergy, int maxFullness, Date lastFeed, Date lastEnergized, Date birth){
+    public void setStatus(int attack, int defense, int maxHp, int maxEnergy, int maxFullness, Date lastFeed, Date lastEnergized, Date birth){
         this.attack = attack;
         this.defense = defense;
         this.maxHp = maxHp;
@@ -55,7 +56,7 @@ public abstract class Digimon implements Serializable {
         initializeInformationsOnCreate();
     }
 
-    public Digimon(){
+    protected Digimon(){
         lastFeed = new Date();
         lastEnergized = new Date();
         birth = new Date();
@@ -90,6 +91,7 @@ public abstract class Digimon implements Serializable {
         float randomXY = MIN_WALK_DISTANCE + random.nextFloat() * (MAX_WALK_DISTANCE - MIN_WALK_DISTANCE);
         Log.d("Walk distance", "randomed: "+randomXY);
         float randomX = randomXY;
+        randomXY = MIN_WALK_DISTANCE + random.nextFloat() * (MAX_WALK_DISTANCE - MIN_WALK_DISTANCE);
         float randomY = randomXY;
         float currentX = activity.getTranslationX();
         float currentY = activity.getTranslationY();
@@ -163,21 +165,26 @@ public abstract class Digimon implements Serializable {
      * @param food Item to give to digimon
      */
     public void feed(Food food){
-        if(food.fullness != 0){
-            if(this.fullness + food.fullness > maxFullness){
+        if(food.getFullness() != 0){
+            if(this.fullness + food.getFullness() > maxFullness){
                 this.fullness = maxFullness;
             }
             else {
-                this.fullness += food.fullness;
+                this.fullness += food.getFullness();
             }
             lastFeed = new Date();
         }
-        this.energy += food.energy;
-        this.attack += food.attack;
-        this.defense += food.defense;
-        this.hp += food.hp;
-        this.maxHp += food.maxHp;
-        this.maxFullness += food.maxFullness;
+        this.energy += food.getEnergy();
+        this.attack += food.getAttack();
+        this.defense += food.getDefense();
+        if(this.hp + food.getHp() > maxHp + food.getMaxHp()){
+            this.hp = maxHp + food.getMaxHp();
+        }
+        else{
+            this.hp += food.getHp();
+        }
+        this.maxHp += food.getMaxHp();
+        this.maxFullness += food.getMaxFullness();
     }
 
     /**

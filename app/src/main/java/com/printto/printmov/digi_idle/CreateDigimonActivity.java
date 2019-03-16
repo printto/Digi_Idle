@@ -11,6 +11,7 @@ import com.printto.printmov.digi_idle.MainActivity;
 import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
+import com.printto.printmov.digi_idle.digimon.DigimonFactory;
 import com.printto.printmov.digi_idle.digimon.Terriermon;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 
@@ -42,7 +43,7 @@ public class CreateDigimonActivity extends AppCompatActivity {
 
     public void terriermonSelected(View view){
         if(!nameInput.getText().toString().equals("")){
-            digimon = new Terriermon(0,0,0,0,new Date(),new Date(),new Date());
+            digimon = DigimonFactory.findDigimonByName("Terriermon");
             createSave(digimon);
         }
         else{

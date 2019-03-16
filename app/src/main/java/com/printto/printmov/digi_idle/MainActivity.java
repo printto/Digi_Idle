@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.printto.printmov.digi_idle.digimon.Digimon;
+import com.printto.printmov.digi_idle.utils.SaveEditorDebug;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 import com.printto.printmov.digi_idle.utils.WalkEngine;
 
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         ObjectAnimator animatorY = ObjectAnimator.ofFloat(walker, "translationY", toWalkY);
         final AnimatorSet animSet = new AnimatorSet();
         animSet.playTogether(animatorX, animatorY);
-        animSet.setDuration(2950);
+        animSet.setDuration(2990);
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override public void run() {
                 animSet.start();
@@ -109,4 +110,11 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     public float getTranslationY() {
         return walker.getTranslationY();
     }
+
+    public void onDebugButtonClicked(View view){
+        Intent intent = new Intent(this, SaveEditorDebug.class);
+        startActivity(intent);
+        finish();
+    }
+
 }
