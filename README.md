@@ -19,6 +19,7 @@ UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon 
 - No changes at the moment. Initial commit.
 
 ### TODO
+- Recut the sprites (Resize before cutting the sprites to make them stay pixeled)
 - Implement all thefunction for buttons at the bottom of the screen
 - Implement training and battle system (May use Pedrometer as a system)
 - Implement leveling and up stats system
