@@ -52,8 +52,8 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
                 +"\n\n HP: "+digimon.getHp() + "/" + digimon.getMaxHp()
                 +"\n Attack: "+digimon.getAttack()
                 +"\n Defense: "+digimon.getDefense()
-                +"\n\n Birth: "+digimon.getBirth()
-                +"\n Age: "+digimon.getAge()
+//                +"\n\n Birth: "+digimon.getBirth()
+                +"\n\n Age: "+digimon.getAgeString()
                 +"\n\n Energy: "+digimon.getEnergy() + "/" + digimon.getMaxEnergy()
                 +"\n\n Level: "+player.level
                 +"\n Exp: "+player.exp);
@@ -84,9 +84,7 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
 
     @Override
     public void setWalkerPic(int resID) {
-        walker.setBackgroundResource(resID);
-        walkerAnimation = (AnimationDrawable) walker.getBackground();
-        walkerAnimation.start();
+        runOnUiThread(new AnimateWalker(resID));
     }
 
     @Override
@@ -98,4 +96,18 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
     public float getTranslationY() {
         return walker.getTranslationY();
     }
+
+    class AnimateWalker implements Runnable {
+        int resID;
+        public AnimateWalker(int resID) {
+            this.resID = resID;
+        }
+        @Override
+        public void run() {
+            walker.setImageResource(resID);
+            walkerAnimation = (AnimationDrawable) walker.getDrawable();
+            walkerAnimation.start();
+        }
+    }
+
 }

@@ -4,6 +4,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 
 import com.printto.printmov.digi_idle.R;
+import com.printto.printmov.digi_idle.utils.DigimonForms;
 import com.printto.printmov.digi_idle.utils.WalkingModes;
 
 import java.util.Date;
@@ -13,6 +14,7 @@ public class Terriermon extends Digimon {
     @Override
     protected void initializeInformationsOnCreate() {
         name = "Terriermon";
+        form = DigimonForms.ROOKIE;
     }
 
     @Override

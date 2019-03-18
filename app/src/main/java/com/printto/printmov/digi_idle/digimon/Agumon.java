@@ -1,6 +1,7 @@
 package com.printto.printmov.digi_idle.digimon;
 
 import com.printto.printmov.digi_idle.R;
+import com.printto.printmov.digi_idle.utils.DigimonForms;
 import com.printto.printmov.digi_idle.utils.WalkingModes;
 
 public class Agumon extends Digimon {
@@ -8,6 +9,7 @@ public class Agumon extends Digimon {
     @Override
     protected void initializeInformationsOnCreate() {
         name = "Agumon";
+        form = DigimonForms.ROOKIE;
     }
 
     @Override

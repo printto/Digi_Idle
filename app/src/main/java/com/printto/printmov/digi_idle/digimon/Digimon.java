@@ -42,6 +42,8 @@ public abstract class Digimon implements Serializable {
     float screenSizeX = 0;
     float screenSizeY = 0;
 
+    int form = 0;
+
     DigimonViewController activity;
 
     public void setStatus(int attack, int defense, int maxHp, int maxEnergy, int maxFullness, Date lastFeed, Date lastEnergized, Date birth){
@@ -208,6 +210,16 @@ public abstract class Digimon implements Serializable {
         return new Date().getTime() - birth.getTime();
     }
 
+    public String getAgeString(){
+        long millis = getAge() % 1000;
+        long second = (getAge() / 1000) % 60;
+        long minute = (getAge() / (1000 * 60)) % 60;
+        long hour = (getAge() / (1000 * 60 * 60)) % 24;
+        long day = (getAge() / (1000 * 60 * 60 * 24));
+
+        return String.format("%d days %d hours %d minutes", day, hour, minute);
+    }
+
     public int getModeCount() {
         return modeCount;
     }
@@ -268,4 +280,11 @@ public abstract class Digimon implements Serializable {
         return birth;
     }
 
+    public int getMood() {
+        return mood;
+    }
+
+    public int getForm() {
+        return form;
+    }
 }

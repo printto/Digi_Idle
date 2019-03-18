@@ -44,39 +44,38 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
 
         saveManager = new SaveManager();
 
-        if(saveManager.loadState()){
+        if (saveManager.loadState()) {
             digimon = saveManager.getDigimon();
             player = saveManager.getPlayer();
             nameText.setText(player.getName());
             profilePic.setImageResource(digimon.getProfilePic());
             float sizeX = (getApplicationContext().getResources().getDisplayMetrics().widthPixels / 2) - 40;
             float sizeY = (getApplicationContext().getResources().getDisplayMetrics().heightPixels / 2) - 300;
-            Log.d("Initialize Size", sizeX+","+sizeY);
+            Log.d("Initialize Size", sizeX + "," + sizeY);
             digimon.initializeWalkingArea(this, sizeX, sizeY);
             walkEngine = new WalkEngine(digimon);
             walkEngine.walk();
-        }
-        else{
+        } else {
             Intent intent = new Intent(this, CreateDigimonActivity.class);
             startActivity(intent);
             finish();
         }
     }
 
-    public void statusBtnClicked(View view){
+    public void statusBtnClicked(View view) {
         Intent intent = new Intent(this, StatusActivity.class);
         startActivity(intent);
     }
 
-    public void feedBtnClicked(View view){
+    public void feedBtnClicked(View view) {
 
     }
 
-    public void fightBtnClicked(View view){
+    public void fightBtnClicked(View view) {
 
     }
 
-    public void sleepBtnClicked(View view){
+    public void sleepBtnClicked(View view) {
 
     }
 
@@ -88,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         animSet.playTogether(animatorX, animatorY);
         animSet.setDuration(2990);
         new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 animSet.start();
             }
         });
@@ -96,9 +96,7 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
 
     @Override
     public void setWalkerPic(int resID) {
-        walker.setBackgroundResource(resID);
-        walkerAnimation = (AnimationDrawable) walker.getBackground();
-        walkerAnimation.start();
+        runOnUiThread(new AnimateWalker(resID));
     }
 
     @Override
@@ -111,10 +109,26 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         return walker.getTranslationY();
     }
 
-    public void onDebugButtonClicked(View view){
+    public void onDebugButtonClicked(View view) {
         Intent intent = new Intent(this, SaveEditorDebug.class);
         startActivity(intent);
         finish();
+
+//        Intent intent = new Intent(this, DigivolveActivity.class);
+//        startActivity(intent);
+    }
+
+    class AnimateWalker implements Runnable {
+        int resID;
+        public AnimateWalker(int resID) {
+            this.resID = resID;
+        }
+        @Override
+        public void run() {
+            walker.setImageResource(resID);
+            walkerAnimation = (AnimationDrawable) walker.getDrawable();
+            walkerAnimation.start();
+        }
     }
 
 }
