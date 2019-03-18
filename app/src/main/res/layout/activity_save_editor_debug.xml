@@ -27,6 +27,7 @@
         android:ems="10"
         android:hint="Player name"
         android:inputType="textPersonName"
+        android:text="Printto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -64,7 +65,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="HP"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
 
         <EditText
             android:id="@+id/maxHp"
@@ -73,7 +75,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Max Hp"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
 
     </LinearLayout>
 
@@ -96,7 +99,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Attack"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
 
         <EditText
             android:id="@+id/def"
@@ -105,7 +109,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Defense"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
 
     </LinearLayout>
 
@@ -128,7 +133,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Fullness"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
 
         <EditText
             android:id="@+id/maxFullness"
@@ -137,7 +143,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Max Fullness"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -159,7 +166,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Energy"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
 
         <EditText
             android:id="@+id/maxEnergy"
@@ -168,7 +176,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Max Energy"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -190,7 +199,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Level"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
 
         <EditText
             android:id="@+id/exp"
@@ -199,7 +209,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Exp"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="1" />
     </LinearLayout>
 
     <LinearLayout

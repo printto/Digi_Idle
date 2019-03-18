@@ -1,0 +1,18 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:drawable="@drawable/digivolvebg1" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg2" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg3" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg4" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg5" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg6" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg7" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg8" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg9" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg10" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg11" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg12" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg13" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg14" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg15" android:duration="200" android:scaleGravity="center" />
+    <item android:drawable="@drawable/digivolvebg16" android:duration="200" android:scaleGravity="center" />
+</animation-list>

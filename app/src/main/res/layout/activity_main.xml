@@ -19,10 +19,11 @@
 
     <ImageView
         android:id="@+id/walker"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:cropToPadding="false"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,37 +43,45 @@
             android:id="@+id/status_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn2"
+            android:onClick="statusBtnClicked"
             android:text="Status"
+            android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="statusBtnClicked" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/feed_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn2"
+            android:onClick="feedBtnClicked"
             android:text="Feed"
+            android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="feedBtnClicked" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/fight_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn2"
+            android:onClick="fightBtnClicked"
             android:text="Fight"
+            android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="fightBtnClicked" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/sleep_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn2"
+            android:onClick="sleepBtnClicked"
             android:text="Sleep"
+            android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="sleepBtnClicked" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
 
