@@ -5,6 +5,7 @@ Digivice-like pet game
 - Create and load save
 - Choosing the starter partner
 - Get your partner to walk around in your farm
+- [Debug] Save editor enabled for testing sprites
 
 ### Current Progress
 - Digivolution system
@@ -12,12 +13,13 @@ Digivice-like pet game
 ### Screenshot
 UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon Idle)
 :-------------------------:|:-------------------------:
-!<img text-align="center" src="https://github.com/printto/Digi_Idle/blob/master/screenshot1.jpg" alt="drawing" width="200" />  |  <img text-align="center" src="https://github.com/printto/Digi_Idle/blob/master/screenshot2.gif" alt="drawing" width="200" />
+<img text-align="center" src="https://github.com/printto/Digi_Idle/blob/master/screenshot1.jpg" alt="drawing" width="200" />  |  <img text-align="center" src="https://github.com/printto/Digi_Idle/blob/master/screenshot2.gif" alt="drawing" width="200" />
 
 ### V1.0 Changes
 - No changes at the moment. Initial commit.
 
 ### TODO
+- Recut the sprites (Resize before cutting the sprites to make them stay pixeled)
 - Implement all thefunction for buttons at the bottom of the screen
 - Implement training and battle system (May use Pedrometer as a system)
 - Implement leveling and up stats system
