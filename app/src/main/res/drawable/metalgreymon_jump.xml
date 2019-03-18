@@ -1,0 +1,4 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:drawable="@drawable/metalgreymonj1" android:duration="600" />
+    <item android:drawable="@drawable/metalgreymonj2" android:duration="600" />
+</animation-list>
