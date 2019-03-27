@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.printto.printmov.digi_idle.MainActivity;
+import com.printto.printmov.digi_idle.activities.MainActivity;
 import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.digimon.DigimonFactory;
 import com.printto.printmov.digi_idle.food.DebugFood1;
-import com.printto.printmov.digi_idle.food.Food;
 
 import java.util.Date;
 

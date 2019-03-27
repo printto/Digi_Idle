@@ -1,4 +1,4 @@
-package com.printto.printmov.digi_idle;
+package com.printto.printmov.digi_idle.activities;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.printto.printmov.digi_idle.Player;
+import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.utils.SaveEditorDebug;
 import com.printto.printmov.digi_idle.utils.SaveManager;
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     public void statusBtnClicked(View view) {
         Intent intent = new Intent(this, StatusActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void feedBtnClicked(View view) {

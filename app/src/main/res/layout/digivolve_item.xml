@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/slot80">
+
+    <ImageView
+        android:id="@+id/digimon_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/slot1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ch_9999" />
+
+    <TextView
+        android:id="@+id/digimon_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/digimon_image"
+        android:text="Name holder"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/availability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/digimon_name"
+        android:layout_alignLeft="@+id/digimon_name"
+        android:layout_marginBottom="15dp"
+        android:text="Requirement"
+        android:textColor="@android:color/background_light"
+        android:textSize="16sp" />
+
+    <ImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/d_image"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignBaseline="@+id/digimon_image"
+        android:layout_alignBottom="@+id/digimon_image"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/gblack" />
+
+</RelativeLayout>

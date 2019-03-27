@@ -1,6 +1,8 @@
 package com.printto.printmov.digi_idle.digimon;
 
+import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.utils.DigimonForms;
+import com.printto.printmov.digi_idle.utils.SaveManager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -67,10 +69,11 @@ public class DigimonFactory {
             default:
 
         }
-        return (Digimon[]) temp.toArray();
+        Digimon[] tempArray = temp.toArray(new Digimon[temp.size()]);
+        return tempArray;
     }
 
-    public String getRequirementString(String digimonName) {
+    public static String getRequirementString(String digimonName) {
 
         String requirement = "";
         Digimon digimon = findDigimonByName(digimonName);
@@ -96,27 +99,107 @@ public class DigimonFactory {
         switch (digimonName) {
 
             case "Koromon Egg":
+                break;
 
             case "Koromon":
+                break;
 
             case "Agumon":
                 requirement += "Attack > 10\nDefense > 10";
+                break;
 
             case "Greymon":
                 requirement += "Attack > 20\nDefense > 10";
+                break;
 
             case "Geogreymon":
                 requirement += "Level > 10";
+                break;
 
             case "Metalgreymon":
                 requirement += "HP > 300";
+                break;
 
             case "Terriermon":
+                break;
 
             default:
 
         }
         return requirement;
+    }
+
+    public static boolean checkDigivolve(Player player, Digimon digimon, String digimonName) {
+
+        Digimon temp = findDigimonByName(digimonName);
+
+        switch (temp.getForm()) {
+            case DigimonForms.INTRAINING:
+                if (digimon.getAge() < 300000) {
+                    return false;
+                }
+                break;
+            case DigimonForms.ROOKIE:
+                if (digimon.getAge() < 86400000) {
+                    return false;
+                }
+                break;
+            case DigimonForms.CHAMPION:
+                if (digimon.getAge() < 86400000 * 3) {
+                    return false;
+                }
+                break;
+            case DigimonForms.ULTIMATE:
+                if (digimon.getAge() < 86400000 * 5) {
+                    return false;
+                }
+                break;
+            case DigimonForms.MEGA:
+                if (digimon.getAge() < 86400000 * 10) {
+                    return false;
+                }
+                break;
+        }
+
+        switch (digimonName) {
+
+            case "Koromon Egg":
+                return true;
+
+            case "Koromon":
+                break;
+
+            case "Agumon":
+                return digimon.getAttack() >= 10 && digimon.getDefense() >= 10;
+
+            case "Greymon":
+                return digimon.getAttack() >= 20 && digimon.getDefense() >= 10;
+
+            case "Geogreymon":
+                return player.getLevel() >= 10;
+
+            case "Metalgreymon":
+                return digimon.getMaxHp() >= 300;
+
+            case "Terriermon":
+                break;
+        }
+        return true;
+    }
+
+    public static void digivolve(Player player, Digimon digimon, String nextDigimon) {
+        int attack = (int) 1.5 * digimon.attack;
+        int defense = (int) 1.5 * digimon.defense;
+        int maxHp = (int) 1.5 * digimon.maxHp;
+        Digimon temp = findDigimonByName(nextDigimon);
+        int maxEnergy = digimon.maxEnergy;
+        Date lastFeed = new Date();
+        Date lastEnergized = new Date();
+        Date birth = digimon.birth;
+        int maxFullness = digimon.maxFullness;
+        temp.setStatus(attack, defense, maxHp, maxEnergy, maxFullness, lastFeed, lastEnergized, birth);
+        SaveManager saveManager = new SaveManager();
+        saveManager.saveState(digimon, player);
     }
 
 }

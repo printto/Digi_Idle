@@ -1,4 +1,4 @@
-package com.printto.printmov.digi_idle;
+package com.printto.printmov.digi_idle.activities;
 
 public interface DigimonViewController {
 

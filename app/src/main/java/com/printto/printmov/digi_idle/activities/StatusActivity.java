@@ -1,7 +1,8 @@
-package com.printto.printmov.digi_idle;
+package com.printto.printmov.digi_idle.activities;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Looper;
@@ -9,10 +10,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.printto.printmov.digi_idle.Player;
+import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
+import com.printto.printmov.digi_idle.utils.DigimonForms;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 import com.printto.printmov.digi_idle.utils.WalkEngine;
 
@@ -55,17 +60,26 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
 //                +"\n\n Birth: "+digimon.getBirth()
                 +"\n\n Age: "+digimon.getAgeString()
                 +"\n\n Energy: "+digimon.getEnergy() + "/" + digimon.getMaxEnergy()
-                +"\n\n Level: "+player.level
-                +"\n Exp: "+player.exp);
+                +"\n\n Level: "+player.getLevel()
+                +"\n Exp: "+player.getExp());
+
+        if(digimon.getForm() == DigimonForms.INTRAINING){
+            Button digivolveBtn = findViewById(R.id.digivolveBtn);
+            digivolveBtn.setText("Hatch");
+        }
 
     }
 
     public void onBackBtnClicked(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
         this.finish();
     }
 
     public void onDigivolveClicked(View view){
-
+        Intent intent = new Intent(this, DigivolveActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 
     @Override
@@ -108,6 +122,11 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
             walkerAnimation = (AnimationDrawable) walker.getDrawable();
             walkerAnimation.start();
         }
+    }
+
+    @Override
+    public void onBackPressed () {
+
     }
 
 }

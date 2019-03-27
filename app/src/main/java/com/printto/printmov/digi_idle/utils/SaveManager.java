@@ -76,19 +76,20 @@ public class SaveManager {
             loadPlayer = ((Player) objectInStream.readObject());
             objectInStream.close();
         } catch (FileNotFoundException e1) {
-            Log.e("Load save", "No save found");
+            Log.e("Load state", "No save found");
+            e1.printStackTrace();
             return false;
         } catch (ClassNotFoundException e1) {
-            Log.e("Load save", "Loading save failed");
+            Log.e("Load state", "Error casting class. Save state is too old?");
             return false;
         } catch (OptionalDataException e1) {
-            Log.e("Load save", "Loading save failed");
+            Log.e("Load state", "Loading save failed");
             return false;
         } catch (StreamCorruptedException e1) {
-            Log.e("Load save", "Loading save failed");
+            Log.e("Load state", "Loading save failed");
             return false;
         } catch (IOException e1) {
-            Log.e("Load save", "Loading save failed");
+            Log.e("Load state", "Loading save failed");
             return false;
         }
         if(loadDigimon != null || loadPlayer != null){

@@ -2,7 +2,7 @@ package com.printto.printmov.digi_idle.digimon;
 
 import android.util.Log;
 
-import com.printto.printmov.digi_idle.DigimonViewController;
+import com.printto.printmov.digi_idle.activities.DigimonViewController;
 import com.printto.printmov.digi_idle.food.Food;
 import com.printto.printmov.digi_idle.utils.WalkingModes;
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/glowinput"
-    tools:context=".StatusActivity">
+    tools:context=".activities.StatusActivity">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/b"
+            android:id="@+id/digivolveBtn"
             android:layout_width="106dp"
             android:layout_height="53dp"
             android:layout_weight="1"
