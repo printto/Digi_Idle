@@ -70,16 +70,17 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
 
     }
 
-    public void onBackBtnClicked(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        this.finish();
-    }
+//    public void onBackBtnClicked(View view){
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+//        this.finish();
+//    }
 
     public void onDigivolveClicked(View view){
         Intent intent = new Intent(this, DigivolveActivity.class);
         startActivity(intent);
         this.finish();
+        overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
     }
 
     @Override
@@ -126,7 +127,10 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
 
     @Override
     public void onBackPressed () {
-
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        this.finish();
+        overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
     }
 
 }

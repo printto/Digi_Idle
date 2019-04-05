@@ -8,7 +8,6 @@ import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -17,25 +16,20 @@ import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.digimon.DigimonFactory;
 import com.printto.printmov.digi_idle.utils.DigimonArrayAdapterKotlin;
-import com.printto.printmov.digi_idle.utils.SaveEditorDebug;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DigivolveActivity extends AppCompatActivity {
+public class DigivolveSceneActivity extends AppCompatActivity {
 
     ImageView profilePic;
     Digimon digimon;
     Player player;
     SaveManager saveManager;
-    ListView listView;
 
     boolean slidingup = true;
-
-    DigimonArrayAdapterKotlin adapter = null;
-    ArrayList<Digimon> nextDigimons = new ArrayList<Digimon>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,33 +69,11 @@ public class DigivolveActivity extends AppCompatActivity {
             }
         },0,2000);
 
-        adapter = new DigimonArrayAdapterKotlin(this, nextDigimons);
-        listView = findViewById(R.id.listView);
-        listView.setAdapter(adapter);
-        for(Digimon digi: DigimonFactory.getNextDigivolvableArray(digimon.getName())){
-            nextDigimons.add(digi);
-        }
-        final AppCompatActivity digivolveActivity = this;
-        listView.setOnItemClickListener( new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Digimon clicked = (Digimon) listView.getItemAtPosition(position);
-                Intent intent = new Intent(digivolveActivity, DigivolveSceneActivity.class);
-                intent.putExtra("currentDigimon",digimon);
-                intent.putExtra("nextDigimon", clicked);
-                startActivity(intent);
-                finish();
-                overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
-            }
-        });
     }
 
     @Override
     public void onBackPressed () {
-        Intent intent = new Intent(this, StatusActivity.class);
-        startActivity(intent);
-        this.finish();
-        overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
+
     }
 
 }

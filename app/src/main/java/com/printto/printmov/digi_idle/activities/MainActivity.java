@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         Intent intent = new Intent(this, StatusActivity.class);
         startActivity(intent);
         finish();
+        overridePendingTransition(R.anim.zoomoutfadein, R.anim.zoominfadeout);
     }
 
     public void feedBtnClicked(View view) {
@@ -116,7 +117,6 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         Intent intent = new Intent(this, SaveEditorDebug.class);
         startActivity(intent);
         finish();
-
 //        Intent intent = new Intent(this, DigivolveActivity.class);
 //        startActivity(intent);
     }
