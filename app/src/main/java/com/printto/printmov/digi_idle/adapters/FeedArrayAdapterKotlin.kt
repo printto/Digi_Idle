@@ -1,9 +1,8 @@
-package com.printto.printmov.digi_idle.utils
+package com.printto.printmov.digi_idle.adapters
 
 import android.app.Activity
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.media.Image
 import android.support.v7.content.res.AppCompatResources
 import android.view.LayoutInflater
 import android.view.View
@@ -14,12 +13,10 @@ import android.widget.TextView
 import com.printto.printmov.digi_idle.R
 import com.printto.printmov.digi_idle.digimon.Digimon
 import com.printto.printmov.digi_idle.digimon.DigimonFactory
-import java.io.InputStream
-import java.net.URL
+import com.printto.printmov.digi_idle.utils.SaveManager
 import java.util.*
-import kotlin.concurrent.thread
 
-class DigimonArrayAdapterKotlin(var context: Context, var rowItems: ArrayList<Digimon>) : BaseAdapter() {
+class FeedArrayAdapterKotlin(var context: Context, var rowItems: ArrayList<Digimon>) : BaseAdapter() {
 
     var saveManager: SaveManager = SaveManager()
 

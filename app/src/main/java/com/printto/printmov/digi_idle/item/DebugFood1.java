@@ -1,4 +1,4 @@
-package com.printto.printmov.digi_idle.food;
+package com.printto.printmov.digi_idle.item;
 
 public class DebugFood1 extends Food{
 

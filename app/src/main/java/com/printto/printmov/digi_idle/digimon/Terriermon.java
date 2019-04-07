@@ -1,13 +1,8 @@
 package com.printto.printmov.digi_idle.digimon;
 
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
-
 import com.printto.printmov.digi_idle.R;
-import com.printto.printmov.digi_idle.utils.DigimonForms;
-import com.printto.printmov.digi_idle.utils.WalkingModes;
-
-import java.util.Date;
+import com.printto.printmov.digi_idle.values.DigimonForms;
+import com.printto.printmov.digi_idle.values.WalkingModes;
 
 public class Terriermon extends Digimon {
 

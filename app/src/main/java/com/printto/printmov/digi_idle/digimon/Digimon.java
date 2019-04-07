@@ -3,8 +3,8 @@ package com.printto.printmov.digi_idle.digimon;
 import android.util.Log;
 
 import com.printto.printmov.digi_idle.activities.DigimonViewController;
-import com.printto.printmov.digi_idle.food.Food;
-import com.printto.printmov.digi_idle.utils.WalkingModes;
+import com.printto.printmov.digi_idle.item.Food;
+import com.printto.printmov.digi_idle.values.WalkingModes;
 
 import java.io.Serializable;
 import java.util.Date;

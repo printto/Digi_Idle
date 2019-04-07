@@ -1,0 +1,22 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:drawable="@drawable/itemoverlay01" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay02" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay03" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay04" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay05" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay06" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay07" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay08" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay09" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay10" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay11" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay12" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay13" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay14" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay15" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay16" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay17" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay18" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay19" android:duration="100" />
+    <item android:drawable="@drawable/itemoverlay20" android:duration="100" />
+</animation-list>

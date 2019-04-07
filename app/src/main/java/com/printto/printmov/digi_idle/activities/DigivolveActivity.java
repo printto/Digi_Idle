@@ -11,13 +11,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.digimon.DigimonFactory;
-import com.printto.printmov.digi_idle.utils.DigimonArrayAdapterKotlin;
-import com.printto.printmov.digi_idle.utils.SaveEditorDebug;
+import com.printto.printmov.digi_idle.adapters.DigimonArrayAdapterKotlin;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 
 import java.util.ArrayList;
@@ -86,12 +86,17 @@ public class DigivolveActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Digimon clicked = (Digimon) listView.getItemAtPosition(position);
-                Intent intent = new Intent(digivolveActivity, DigivolveSceneActivity.class);
-                intent.putExtra("currentDigimon",digimon);
-                intent.putExtra("nextDigimon", clicked);
-                startActivity(intent);
-                finish();
-                overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
+                if(DigimonFactory.checkDigivolve(player, digimon, clicked.getName())){
+                    Intent intent = new Intent(digivolveActivity, DigivolveSceneActivity.class);
+                    intent.putExtra("currentDigimon",digimon);
+                    intent.putExtra("nextDigimon", clicked);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
+                }
+                else {
+                    Toast.makeText(digivolveActivity, "Please check the requirement.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

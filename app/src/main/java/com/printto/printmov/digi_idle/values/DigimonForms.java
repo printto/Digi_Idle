@@ -1,4 +1,4 @@
-package com.printto.printmov.digi_idle.utils;
+package com.printto.printmov.digi_idle.values;
 
 public class DigimonForms {
 

@@ -11,7 +11,7 @@ import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.digimon.DigimonFactory;
-import com.printto.printmov.digi_idle.food.DebugFood1;
+import com.printto.printmov.digi_idle.item.DebugFood1;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
-package com.printto.printmov.digi_idle.food;
+package com.printto.printmov.digi_idle.item;
 
-public abstract class Food {
+public abstract class Food extends Item {
 
     int fullness;
     int energy = 0;

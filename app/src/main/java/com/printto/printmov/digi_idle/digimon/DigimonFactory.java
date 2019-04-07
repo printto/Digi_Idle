@@ -1,7 +1,7 @@
 package com.printto.printmov.digi_idle.digimon;
 
 import com.printto.printmov.digi_idle.Player;
-import com.printto.printmov.digi_idle.utils.DigimonForms;
+import com.printto.printmov.digi_idle.values.DigimonForms;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 
 import java.util.ArrayList;
@@ -187,7 +187,7 @@ public class DigimonFactory {
         return true;
     }
 
-    public static void digivolve(Player player, Digimon digimon, String nextDigimon) {
+    public static void digivolve(Digimon digimon, String nextDigimon) {
         int attack = (int) 1.5 * digimon.attack;
         int defense = (int) 1.5 * digimon.defense;
         int maxHp = (int) 1.5 * digimon.maxHp;
@@ -199,7 +199,7 @@ public class DigimonFactory {
         int maxFullness = digimon.maxFullness;
         temp.setStatus(attack, defense, maxHp, maxEnergy, maxFullness, lastFeed, lastEnergized, birth);
         SaveManager saveManager = new SaveManager();
-        saveManager.saveState(digimon, player);
+        saveManager.saveState(temp);
     }
 
 }

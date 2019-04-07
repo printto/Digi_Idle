@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
-import com.printto.printmov.digi_idle.utils.DigimonForms;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 import com.printto.printmov.digi_idle.utils.WalkEngine;
 
@@ -63,7 +62,7 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
                 +"\n\n Level: "+player.getLevel()
                 +"\n Exp: "+player.getExp());
 
-        if(digimon.getForm() == DigimonForms.INTRAINING){
+        if(digimon.getName().contains(" Egg")){
             Button digivolveBtn = findViewById(R.id.digivolveBtn);
             digivolveBtn.setText("Hatch");
         }

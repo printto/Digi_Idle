@@ -1,8 +1,8 @@
 package com.printto.printmov.digi_idle.digimon;
 
 import com.printto.printmov.digi_idle.R;
-import com.printto.printmov.digi_idle.utils.DigimonForms;
-import com.printto.printmov.digi_idle.utils.WalkingModes;
+import com.printto.printmov.digi_idle.values.DigimonForms;
+import com.printto.printmov.digi_idle.values.WalkingModes;
 
 public class Greymon extends Digimon {
 

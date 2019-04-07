@@ -59,6 +59,21 @@ public class SaveManager {
         }
     }
 
+    public void saveState(Digimon digimon) {
+        FileOutputStream outStream = null;
+        try {
+            File digimonSaveFile = new File(Environment.getExternalStorageDirectory(), "/digimon.dat");
+            outStream = new FileOutputStream(digimonSaveFile);
+            ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
+            objectOutStream.writeObject(digimon);
+            objectOutStream.close();
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
     public boolean loadState()
     {
         Digimon loadDigimon = null;
@@ -84,12 +99,15 @@ public class SaveManager {
             return false;
         } catch (OptionalDataException e1) {
             Log.e("Load state", "Loading save failed");
+            e1.printStackTrace();
             return false;
         } catch (StreamCorruptedException e1) {
             Log.e("Load state", "Loading save failed");
+            e1.printStackTrace();
             return false;
         } catch (IOException e1) {
             Log.e("Load state", "Loading save failed");
+            e1.printStackTrace();
             return false;
         }
         if(loadDigimon != null || loadPlayer != null){
