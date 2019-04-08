@@ -1,5 +1,7 @@
 package com.printto.printmov.digi_idle.item;
 
+import com.printto.printmov.digi_idle.R;
+
 public abstract class Food extends Item {
 
     int fullness;

@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn2"
             android:onClick="feedBtnClicked"
-            android:text="Feed"
+            android:text="Bag"
             android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn2"
             android:onClick="fightBtnClicked"
-            android:text="Fight"
+            android:text="Go"
             android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

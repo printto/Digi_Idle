@@ -4,7 +4,7 @@ import com.printto.printmov.digi_idle.R;
 
 public class Cola extends Food {
 
-    public void Cola(){
+    public Cola(){
         id = "0003";
         name = "Soda";
         picture = R.drawable.item0003;

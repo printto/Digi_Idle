@@ -4,7 +4,7 @@ import com.printto.printmov.digi_idle.R;
 
 public class Meat extends Food {
 
-    public void Meat(){
+    public Meat(){
         id = "0001";
         name = "Meat";
         picture = R.drawable.item0001;

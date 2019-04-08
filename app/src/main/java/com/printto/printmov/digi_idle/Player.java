@@ -23,6 +23,7 @@ public class Player implements Serializable {
 
     public Player(String name){
         this.name = name;
+        items.put(new Meat(), -1);
         items.put(new Drug(), 5);
         items.put(new Cola(), 5);
     }
@@ -77,12 +78,16 @@ public class Player implements Serializable {
     }
 
     public void removeItem(Item item){
-        if(items.get(item) <= 1){
+        if(items.get(item) == 1){
             items.remove(item);
         }
         else{
             items.put(item, items.get(item) - 1);
         }
+    }
+
+    public Map<Item, Integer> getItems(){
+        return items;
     }
 
 }

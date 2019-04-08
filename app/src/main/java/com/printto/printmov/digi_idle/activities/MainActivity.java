@@ -72,7 +72,8 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     }
 
     public void feedBtnClicked(View view) {
-
+        Intent intent = new Intent(this, FeedActivity.class);
+        startActivity(intent);
     }
 
     public void fightBtnClicked(View view) {

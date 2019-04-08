@@ -2,19 +2,14 @@ package com.printto.printmov.digi_idle.item;
 
 import com.printto.printmov.digi_idle.R;
 
-public abstract class Item {
+import java.io.Serializable;
 
-    static String id;
-    static String name;
-    static int picture;
-    static String desc;
+public abstract class Item implements Serializable {
 
-    public void Item(){
-        id = "0";
-        name = "Untitled Item";
-        picture = R.drawable.ch_9999;
-        desc = "Mystery effects may apply when using this item.";
-    }
+    String id = "0";
+    String name = "Untitled Item";
+    int picture = R.drawable.ch_9999;
+    String desc = "No description available.";
 
     @Override
     public boolean equals(Object object){
@@ -25,19 +20,19 @@ public abstract class Item {
         return false;
     }
 
-    public static String getID(){
+    public String getID(){
         return id;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static int getPicture() {
+    public int getPicture() {
         return picture;
     }
 
-    public static String getDesc() {
+    public String getDesc() {
         return desc;
     }
 

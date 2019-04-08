@@ -4,7 +4,7 @@ import com.printto.printmov.digi_idle.R;
 
 public class Drug extends Food {
 
-    public void Drug(){
+    public Drug(){
         id = "0002";
         name = "Drug";
         picture = R.drawable.item0002;
