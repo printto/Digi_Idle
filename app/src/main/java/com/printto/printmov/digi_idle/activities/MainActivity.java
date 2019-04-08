@@ -31,8 +31,13 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     ImageView profilePic;
     TextView nameText;
 
+    ImageView sleepDark;
+    ImageView sleepOverlay;
+
     WalkEngine walkEngine;
     AnimationDrawable walkerAnimation;
+
+    boolean isSleep = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         walker = findViewById(R.id.walker);
         profilePic = findViewById(R.id.profileImage);
         nameText = findViewById(R.id.nameText);
+
+        sleepDark = findViewById(R.id.sleepDark);
+        sleepOverlay = findViewById(R.id.sleepOverlay);
 
         saveManager = new SaveManager();
 
@@ -74,14 +82,26 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     public void feedBtnClicked(View view) {
         Intent intent = new Intent(this, FeedActivity.class);
         startActivity(intent);
+        //TODO Feed items to digimon
     }
 
     public void fightBtnClicked(View view) {
-
+        Intent intent = new Intent(this, WorldMapActivity.class);
+        startActivity(intent);
+        //TODO Maps to play
     }
 
     public void sleepBtnClicked(View view) {
-
+        isSleep = !isSleep;
+        if(isSleep){
+            sleepDark.setVisibility(View.VISIBLE);
+            sleepOverlay.setVisibility(View.VISIBLE);
+        }
+        else{
+            sleepDark.setVisibility(View.INVISIBLE);
+            sleepOverlay.setVisibility(View.INVISIBLE);
+        }
+        //TODO Stop everything and save sleeping state
     }
 
     @Override

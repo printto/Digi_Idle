@@ -63,6 +63,7 @@ public class SaveEditorDebug extends AppCompatActivity {
         Digimon digimon = DigimonFactory.findDigimonByName(digimonName.getText().toString());
         digimon.setStatus(atkInt, defInt, maxHpInt, maxEnergyInt, maxFullnessInt, new Date(), new Date(), new Date());
         digimon.feed(new DebugFood1(fullnessInt, energyInt, hpInt));
+        digimon.maxAge();
 
         saveManager.saveState(digimon, player);
         Intent intent = new Intent(this, MainActivity.class);

@@ -40,6 +40,8 @@ public class DigivolveSceneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_digivolve_scene);
 
+        setTitle("Digivolve");
+
         ImageView bgOverlay = findViewById(R.id.bgOverlay);
 
         saveManager = new SaveManager();

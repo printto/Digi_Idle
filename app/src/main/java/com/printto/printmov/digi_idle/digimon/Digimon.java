@@ -7,7 +7,9 @@ import com.printto.printmov.digi_idle.item.Food;
 import com.printto.printmov.digi_idle.values.WalkingModes;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Random;
 
 public abstract class Digimon implements Serializable {
@@ -45,18 +47,6 @@ public abstract class Digimon implements Serializable {
     int form = 0;
 
     DigimonViewController activity;
-
-    public void setStatus(int attack, int defense, int maxHp, int maxEnergy, int maxFullness, Date lastFeed, Date lastEnergized, Date birth){
-        this.attack = attack;
-        this.defense = defense;
-        this.maxHp = maxHp;
-        this.maxEnergy = maxEnergy;
-        this.lastFeed = lastFeed;
-        this.lastEnergized = lastEnergized;
-        this.birth = birth;
-        this.maxFullness = maxFullness;
-        initializeInformationsOnCreate();
-    }
 
     protected Digimon(){
         lastFeed = new Date();
@@ -287,4 +277,26 @@ public abstract class Digimon implements Serializable {
     public int getForm() {
         return form;
     }
+
+    public void setStatus(int attack, int defense, int maxHp, int maxEnergy, int maxFullness, Date lastFeed, Date lastEnergized, Date birth){
+        this.attack = attack;
+        this.defense = defense;
+        this.maxHp = maxHp;
+        this.hp = maxHp;
+        this.maxEnergy = maxEnergy;
+        this.energy = maxEnergy;
+        this.lastFeed = lastFeed;
+        this.lastEnergized = lastEnergized;
+        this.birth = birth;
+        this.maxFullness = maxFullness;
+        this.fullness = maxFullness;
+        initializeInformationsOnCreate();
+    }
+
+    // ==== These are for debugging ====
+
+    public void maxAge(){
+        this.birth = new GregorianCalendar(1998, Calendar.MARCH, 31).getTime();
+    }
+
 }

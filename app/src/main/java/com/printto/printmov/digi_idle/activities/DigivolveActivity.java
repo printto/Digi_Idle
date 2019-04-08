@@ -42,6 +42,8 @@ public class DigivolveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_digivolve);
 
+        setTitle("Digivolve");
+
         ImageView bgOverlay = findViewById(R.id.bgOverlay);
         AnimationDrawable overlayAnimation = (AnimationDrawable) bgOverlay.getDrawable();
         overlayAnimation.start();
