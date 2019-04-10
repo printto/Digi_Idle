@@ -12,6 +12,9 @@ UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon 
 :-------------------------:|:-------------------------:
 <img text-align="center" src="https://github.com/printto/Digi_Idle/blob/master/screenshot1.jpg" alt="drawing" width="200" />  |  <img text-align="center" src="https://github.com/printto/Digi_Idle/blob/master/screenshot2.gif" alt="drawing" width="200" />
 
+### YouTube concept video
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/cUI3_9q2O8w/0.jpg)](https://www.youtube.com/watch?v=cUI3_9q2O8w)
+
 ### V1.1 Changes
 - All 4 buttons at the bottom of the screen now working and lead to a new activity.
 - Digivolve system now working.
