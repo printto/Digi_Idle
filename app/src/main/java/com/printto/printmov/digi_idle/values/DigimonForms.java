@@ -6,5 +6,6 @@ public class DigimonForms {
             ROOKIE = 1,
             CHAMPION = 2,
             ULTIMATE = 3,
-            MEGA = 4;
+            MEGA = 4,
+            EGG = -1;
 }

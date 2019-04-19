@@ -1,6 +1,7 @@
 package com.printto.printmov.digi_idle.digimon;
 
 import com.printto.printmov.digi_idle.R;
+import com.printto.printmov.digi_idle.values.DigimonForms;
 
 public class KoromonEgg extends Digimon {
 
@@ -8,6 +9,7 @@ public class KoromonEgg extends Digimon {
     protected void initializeInformationsOnCreate() {
         name = "Koromon Egg";
         modeCount = 1;
+        form = DigimonForms.EGG;
     }
 
     @Override

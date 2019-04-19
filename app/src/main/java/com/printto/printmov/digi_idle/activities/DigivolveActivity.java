@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
-import com.printto.printmov.digi_idle.digimon.DigimonFactory;
+import com.printto.printmov.digi_idle.factory.DigimonFactory;
 import com.printto.printmov.digi_idle.adapters.DigimonArrayAdapterKotlin;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
@@ -19,6 +20,7 @@ import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.utils.SaveEditorDebug;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 import com.printto.printmov.digi_idle.utils.WalkEngine;
+import com.printto.printmov.digi_idle.values.DigimonForms;
 
 public class MainActivity extends AppCompatActivity implements DigimonViewController {
 
@@ -86,9 +88,14 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     }
 
     public void fightBtnClicked(View view) {
-        Intent intent = new Intent(this, WorldMapActivity.class);
-        startActivity(intent);
-        //TODO Maps to play
+        if(digimon.getForm() != DigimonForms.EGG){
+            Intent intent = new Intent(this, WorldMapActivity.class);
+            startActivity(intent);
+            //TODO Maps to play
+        }
+        else {
+            Toast.makeText(this, "Your partner is too weak to go out at the moment.",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void sleepBtnClicked(View view) {
@@ -96,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         if(isSleep){
             sleepDark.setVisibility(View.VISIBLE);
             sleepOverlay.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "Sleeping mode currently not working.\nNo effect applied.",Toast.LENGTH_SHORT).show();
         }
         else{
             sleepDark.setVisibility(View.INVISIBLE);

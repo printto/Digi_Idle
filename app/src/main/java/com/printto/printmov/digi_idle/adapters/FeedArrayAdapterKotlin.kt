@@ -12,10 +12,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.printto.printmov.digi_idle.R
-import com.printto.printmov.digi_idle.digimon.Digimon
-import com.printto.printmov.digi_idle.digimon.DigimonFactory
 import com.printto.printmov.digi_idle.item.Item
-import com.printto.printmov.digi_idle.utils.SaveManager
 import java.util.*
 
 

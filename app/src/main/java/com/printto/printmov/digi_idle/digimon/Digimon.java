@@ -81,14 +81,14 @@ public abstract class Digimon implements Serializable {
 
     public void generateWalk(int mode){
         float randomXY = MIN_WALK_DISTANCE + random.nextFloat() * (MAX_WALK_DISTANCE - MIN_WALK_DISTANCE);
-        Log.d("Walk distance", "randomed: "+randomXY);
+//        Log.d("Walk distance", "randomed: "+randomXY);
         float randomX = randomXY;
         randomXY = MIN_WALK_DISTANCE + random.nextFloat() * (MAX_WALK_DISTANCE - MIN_WALK_DISTANCE);
         float randomY = randomXY;
         float currentX = activity.getTranslationX();
         float currentY = activity.getTranslationY();
-        Log.d("Current X", "Current X position: "+currentX);
-        Log.d("Current Y", "Current Y position: "+currentY);
+//        Log.d("Current X", "Current X position: "+currentX);
+//        Log.d("Current Y", "Current Y position: "+currentY);
         float toWalkX = 0;
         float toWalkY = 0;
         switch(mode){
@@ -141,10 +141,10 @@ public abstract class Digimon implements Serializable {
                 toWalkY = currentY;
                 break;
         }
-        Log.d("Walk distance", "toWalkX: "+toWalkX);
-        Log.d("Walk distance", "toWalkY: "+toWalkY);
-        Log.d("Screen Size", "Screen size X: "+screenSizeX);
-        Log.d("Screen Size", "Screen size Y: "+screenSizeY);
+//        Log.d("Walk distance", "toWalkX: "+toWalkX);
+//        Log.d("Walk distance", "toWalkY: "+toWalkY);
+//        Log.d("Screen Size", "Screen size X: "+screenSizeX);
+//        Log.d("Screen Size", "Screen size Y: "+screenSizeY);
         walkWalker(toWalkX, toWalkY);
     }
 

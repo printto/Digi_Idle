@@ -6,8 +6,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 
 import com.printto.printmov.digi_idle.R
 import com.printto.printmov.digi_idle.item.Item
@@ -15,15 +13,29 @@ import kotlinx.android.synthetic.main.feed_item.view.*
 
 import java.util.ArrayList
 
-class FeedRecyclerViewAdapter(private val mContext: Context, private val itemsMap: Map<Item, Int>) : RecyclerView.Adapter<FeedRecyclerViewAdapter.ViewHolder>() {
+class FeedRecyclerViewAdapter(private val mContext: Context, private val itemsMap: Map<Item, Int>, private val clickListener: ClickListener) : RecyclerView.Adapter<FeedRecyclerViewAdapter.ViewHolder>() {
 
-    private val mItems = ArrayList<Item>()
-
-    init {
-        mItems.addAll(itemsMap.keys)
+    interface ClickListener {
+        fun onItemClick(position: Int, v: View)
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private var mItems : ArrayList<Item>
+
+    init {
+        var temp = ArrayList<Item>()
+        temp.addAll(itemsMap.keys)
+        mItems  = ArrayList<Item>( temp.sortedWith(compareBy({ it.id })).toList() )
+    }
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View) {
+            clickListener.onItemClick(getAdapterPosition(), v)
+        }
 
         fun bind(item: Item) = with(itemView) {
             item_name.text = item.getName()
@@ -53,6 +65,10 @@ class FeedRecyclerViewAdapter(private val mContext: Context, private val itemsMa
 
     override fun getItemCount(): Int {
         return mItems.size
+    }
+
+    fun getItemFromPosition(position: Int) : Item{
+        return mItems.get(position);
     }
 
 }
