@@ -17,6 +17,9 @@ import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.stepscounter.StepDetector;
 import com.printto.printmov.digi_idle.stepscounter.StepListener;
 
+/**
+ * This class is used for testing step count
+ */
 public class StepTestActivity extends AppCompatActivity implements SensorEventListener, StepListener {
     private TextView TvSteps;
     private StepDetector simpleStepDetector;

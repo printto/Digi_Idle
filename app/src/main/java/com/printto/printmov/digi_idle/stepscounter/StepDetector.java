@@ -1,5 +1,9 @@
 package com.printto.printmov.digi_idle.stepscounter;
 
+/**
+ * Source code from
+ * http://www.gadgetsaint.com/android/create-pedometer-step-counter-android/#.XLxC9ZMzbOQ
+ */
 public class StepDetector {
 
     private static final int ACCEL_RING_SIZE = 50;
@@ -8,7 +12,7 @@ public class StepDetector {
     // change this threshold according to your sensitivity preferences
     private static final float STEP_THRESHOLD = 50f;
 
-    //default is 250000000
+    //default is 250000000. The more deley, the less count
     private static final int STEP_DELAY_NS = 50000000;
 
     private int accelRingCounter = 0;
