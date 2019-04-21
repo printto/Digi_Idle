@@ -33,7 +33,4 @@ UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon 
 - No changes at the moment. Initial commit.
 
 ### TODO
-- (Current TODO) Implement envolve system
-- Implement leveling and up stats system
-- Implement feeding system and food
-- Implement training and battle system (May use Pedrometer as a part of the battle)
+- Implement training, farming and battling system (Use Pedrometer as a power guage of all modes)
