@@ -1,4 +1,4 @@
-package com.printto.printmov.digi_idle.listeners;
+package com.printto.printmov.digi_idle.stepscounter;
 
 public interface StepListener {
 

@@ -19,6 +19,7 @@ import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.utils.SaveEditorDebug;
 import com.printto.printmov.digi_idle.utils.SaveManager;
+import com.printto.printmov.digi_idle.utils.StepTestActivity;
 import com.printto.printmov.digi_idle.utils.WalkEngine;
 import com.printto.printmov.digi_idle.values.DigimonForms;
 
@@ -143,11 +144,11 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     }
 
     public void onDebugButtonClicked(View view) {
-        Intent intent = new Intent(this, SaveEditorDebug.class);
-        startActivity(intent);
-        finish();
-//        Intent intent = new Intent(this, DigivolveActivity.class);
+//        Intent intent = new Intent(this, SaveEditorDebug.class);
 //        startActivity(intent);
+//        finish();
+        Intent intent = new Intent(this, StepTestActivity.class);
+        startActivity(intent);
     }
 
     class AnimateWalker implements Runnable {
