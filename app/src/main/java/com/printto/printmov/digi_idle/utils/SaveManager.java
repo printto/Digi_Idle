@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OptionalDataException;
+import java.io.Serializable;
 import java.io.StreamCorruptedException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -32,7 +33,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-public class SaveManager {
+public class SaveManager implements Serializable {
 
     Digimon digimon = null;
     Player player = null;

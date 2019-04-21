@@ -163,4 +163,12 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         }
     }
 
+    @Override
+    public void finish(){
+        if(walkEngine != null) {
+            walkEngine.stop();
+        }
+        super.finish();
+    }
+
 }

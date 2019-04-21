@@ -40,4 +40,8 @@ public class WalkEngine {
         },0,3000);
     }
 
+    public void stop(){
+        timer.cancel();
+    }
+
 }

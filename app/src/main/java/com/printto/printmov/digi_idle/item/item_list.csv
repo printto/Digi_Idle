@@ -1,4 +1,5 @@
 ID,type,name,desc
+999A,Food,DebugA,Test increase attack food
 0001,Food,Meat,Restore fullness +10
 0002,Food,Drug,Restore HP +5
 0003,Food,Cola,Energy +5

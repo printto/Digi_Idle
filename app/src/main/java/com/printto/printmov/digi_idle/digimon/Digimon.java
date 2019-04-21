@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.printto.printmov.digi_idle.activities.DigimonViewController;
 import com.printto.printmov.digi_idle.item.Food;
+import com.printto.printmov.digi_idle.utils.SaveManager;
 import com.printto.printmov.digi_idle.values.WalkingModes;
 
 import java.io.Serializable;
@@ -47,6 +48,8 @@ public abstract class Digimon implements Serializable {
     int form = 0;
 
     DigimonViewController activity;
+
+    SaveManager saveManager = new SaveManager();
 
     protected Digimon(){
         lastFeed = new Date();
@@ -158,11 +161,11 @@ public abstract class Digimon implements Serializable {
      */
     public void feed(Food food){
         if(food.getFullness() != 0){
-            if(this.fullness + food.getFullness() > maxFullness){
+            if(getFullness() + food.getFullness() > maxFullness){
                 this.fullness = maxFullness;
             }
             else {
-                this.fullness += food.getFullness();
+                this.fullness = getFullness() + food.getFullness();
             }
             lastFeed = new Date();
         }
@@ -184,7 +187,7 @@ public abstract class Digimon implements Serializable {
      * @return Digimon is full
      */
     public boolean isFull(){
-        return fullness >= maxFullness;
+        return getFullness() >= maxFullness;
     }
 
 //    public boolean isEgg(){
@@ -235,7 +238,10 @@ public abstract class Digimon implements Serializable {
     }
 
     public int getFullness() {
-        return fullness;
+        Date currentTime = new Date();
+        int hungryness = (int)( currentTime.getTime() - lastFeed.getTime() )/1500000;
+        int tempFullness = fullness - hungryness;
+        return tempFullness;
     }
 
     public int getEnergy() {

@@ -37,6 +37,8 @@ public class DigivolveActivity extends AppCompatActivity {
     DigimonArrayAdapterKotlin adapter = null;
     ArrayList<Digimon> nextDigimons = new ArrayList<Digimon>();
 
+    Timer timer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class DigivolveActivity extends AppCompatActivity {
         profilePic = findViewById(R.id.profilePic);
         profilePic.setImageResource(digimon.getProfilePic());
 
-        Timer timer = new Timer();
+        timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask(){
             @Override
             public void run(){
@@ -105,6 +107,7 @@ public class DigivolveActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed () {
+        timer.cancel();
         Intent intent = new Intent(this, StatusActivity.class);
         startActivity(intent);
         this.finish();

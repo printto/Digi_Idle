@@ -11,6 +11,7 @@ import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.factory.DigimonFactory;
+import com.printto.printmov.digi_idle.item.DebugAttackFood;
 import com.printto.printmov.digi_idle.item.DebugFood1;
 
 import java.util.Date;
@@ -23,6 +24,16 @@ public class SaveEditorDebug extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_editor_debug);
+    }
+
+    public void getTestFood(View view){
+        saveManager.loadState();
+        Player temp = saveManager.getPlayer();
+        temp.addItem(new DebugAttackFood());
+        saveManager.saveState(saveManager.getDigimon(), temp);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void onBackButtonClicked(View view){

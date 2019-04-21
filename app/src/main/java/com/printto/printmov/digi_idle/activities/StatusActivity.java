@@ -28,6 +28,7 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
     TextView textView;
     ImageView walker;
 
+    WalkEngine walkEngine;
     AnimationDrawable walkerAnimation;
 
     @Override
@@ -48,7 +49,7 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
 
         textView.setMovementMethod(new ScrollingMovementMethod());
 
-        WalkEngine walkEngine = new WalkEngine(digimon);
+        walkEngine = new WalkEngine(digimon);
         walkEngine.walk();
 
         textView.setText("Partner: "+digimon.getName()
@@ -130,6 +131,12 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
         startActivity(intent);
         this.finish();
         overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
+    }
+
+    @Override
+    public void finish(){
+        walkEngine.stop();
+        super.finish();
     }
 
 }
