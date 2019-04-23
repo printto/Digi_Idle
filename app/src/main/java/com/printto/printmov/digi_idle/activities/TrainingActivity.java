@@ -134,6 +134,7 @@ public class TrainingActivity extends AppCompatActivity implements SensorEventLi
             saveManager.saveState(digimon, player);
             initStatus();
         }
+        //TODO Reduce the energy somehow
     }
 
     @Override
