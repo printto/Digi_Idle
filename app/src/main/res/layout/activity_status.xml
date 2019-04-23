@@ -44,6 +44,21 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
+            android:id="@+id/upStatBtn"
+            android:layout_width="106dp"
+            android:layout_height="53dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn1"
+            android:onClick="onUpStatClicked"
+            android:scaleType="fitCenter"
+            android:text="Up Stat"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
             android:id="@+id/digivolveBtn"
             android:layout_width="106dp"
             android:layout_height="53dp"

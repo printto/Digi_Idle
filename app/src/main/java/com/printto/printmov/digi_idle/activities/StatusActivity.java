@@ -83,6 +83,10 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
         overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
     }
 
+    public void onUpStatClicked(View view) {
+        //TODO Player can use points from training to up the status
+    }
+
     @Override
     public void walkWalker(float toWalkX, float toWalkY) {
         ObjectAnimator animatorX = ObjectAnimator.ofFloat(walker, "translationX", toWalkX);
