@@ -85,14 +85,12 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     public void feedBtnClicked(View view) {
         Intent intent = new Intent(this, FeedActivity.class);
         startActivity(intent);
-        //TODO Feed items to digimon
     }
 
     public void fightBtnClicked(View view) {
         if(digimon.getForm() != DigimonForms.EGG){
             Intent intent = new Intent(this, WorldMapActivity.class);
             startActivity(intent);
-            //TODO Maps to play
         }
         else {
             Toast.makeText(this, "Your partner is too weak to go out at the moment.",Toast.LENGTH_SHORT).show();
@@ -110,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
             sleepDark.setVisibility(View.INVISIBLE);
             sleepOverlay.setVisibility(View.INVISIBLE);
         }
-        //TODO Stop everything and save sleeping state
+        //TODO Stop everything and save sleeping state or change this button to something else
     }
 
     @Override
@@ -144,11 +142,11 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     }
 
     public void onDebugButtonClicked(View view) {
-//        Intent intent = new Intent(this, SaveEditorDebug.class);
-//        startActivity(intent);
-//        finish();
-        Intent intent = new Intent(this, StepTestActivity.class);
+        Intent intent = new Intent(this, SaveEditorDebug.class);
         startActivity(intent);
+        finish();
+//        Intent intent = new Intent(this, StepTestActivity.class);
+//        startActivity(intent);
     }
 
     class AnimateWalker implements Runnable {

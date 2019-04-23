@@ -13,10 +13,14 @@ import kotlinx.android.synthetic.main.feed_item.view.*
 
 import java.util.ArrayList
 
-class FeedRecyclerViewAdapter(private val mContext: Context, private val itemsMap: Map<Item, Int>, private val clickListener: ClickListener) : RecyclerView.Adapter<FeedRecyclerViewAdapter.ViewHolder>() {
+class FeedRecyclerViewAdapter(private val mContext: Context, private val itemsMap: Map<Item, Int>, private val clickListener: ClickListener, private val longClickListener: LongClickListener) : RecyclerView.Adapter<FeedRecyclerViewAdapter.ViewHolder>() {
 
     interface ClickListener {
         fun onItemClick(position: Int, v: View)
+    }
+
+    interface LongClickListener {
+        fun onItemLongClick(position: Int, v: View)
     }
 
     private var mItems : ArrayList<Item>
@@ -27,14 +31,20 @@ class FeedRecyclerViewAdapter(private val mContext: Context, private val itemsMa
         mItems  = ArrayList<Item>( temp.sortedWith(compareBy({ it.id })).toList() )
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
 
         init {
             itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
         }
 
         override fun onClick(v: View) {
             clickListener.onItemClick(getAdapterPosition(), v)
+        }
+
+        override fun onLongClick(v: View): Boolean {
+            longClickListener.onItemLongClick(getAdapterPosition(), v)
+            return true
         }
 
         fun bind(item: Item) = with(itemView) {

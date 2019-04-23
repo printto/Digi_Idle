@@ -7,8 +7,12 @@ public class Cola extends Food {
     public Cola(){
         id = "0003";
         name = "Soda";
-        picture = R.drawable.item0003;
         energy = 5;
+        desc = "A sweetened, carbonated soft drink flavored with vanilla, cinnamon, citrus oils and other flavorings.\n\nRefill energy by 5";
     }
 
+    @Override
+    public int getPicture() {
+        return R.drawable.item0003;
+    }
 }

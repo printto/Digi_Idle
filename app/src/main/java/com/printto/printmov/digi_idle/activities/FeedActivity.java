@@ -20,6 +20,7 @@ import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.item.Food;
 import com.printto.printmov.digi_idle.item.Item;
 import com.printto.printmov.digi_idle.utils.SaveManager;
+import com.printto.printmov.digi_idle.utils.StepTestActivity;
 import com.printto.printmov.digi_idle.values.DigimonForms;
 
 import org.jetbrains.annotations.NotNull;
@@ -49,6 +50,8 @@ public class FeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
+
+        setTitle("Inventory");
 
         saveManager = new SaveManager();
         saveManager.loadState();
@@ -86,7 +89,7 @@ public class FeedActivity extends AppCompatActivity {
             if(item.getKey().getClass() == Food.class) foodItems.put(item.getKey(), item.getValue());
         }
 
-        adapter = new FeedRecyclerViewAdapter(thisActivity, player.getItems(), new FeedListener());
+        adapter = new FeedRecyclerViewAdapter(thisActivity, player.getItems(), new FeedListener(), new ItemDescListener());
 
         recyclerView = findViewById(R.id.listView);
         recyclerView.setAdapter(adapter);
@@ -101,7 +104,8 @@ public class FeedActivity extends AppCompatActivity {
 
     class FeedListener implements FeedRecyclerViewAdapter.ClickListener {
         @Override
-        public void onItemClick(int position, @NotNull View v) {Item item =  adapter.getItemFromPosition(position);
+        public void onItemClick(int position, @NotNull View v) {
+            Item item =  adapter.getItemFromPosition(position);
             Log.d("Feed listener",item.getName() + " selected");
             if(item instanceof Food && digimon.getForm() != DigimonForms.EGG){
                 Food food = (Food) item;
@@ -117,8 +121,24 @@ public class FeedActivity extends AppCompatActivity {
             }
             saveManager.loadState();
             player = saveManager.getPlayer();
-            adapter = new FeedRecyclerViewAdapter(thisActivity, player.getItems(), new FeedListener());
+            adapter = new FeedRecyclerViewAdapter(thisActivity, player.getItems(), new FeedListener(), new ItemDescListener());
             recyclerView.setAdapter(adapter);
+        }
+    }
+    class ItemDescListener implements FeedRecyclerViewAdapter.LongClickListener {
+        @Override
+        public void onItemLongClick(int position, @NotNull View v) {
+            Item item =  adapter.getItemFromPosition(position);
+            Intent intent = new Intent(thisActivity, ItemInfoActivity.class);
+            intent.putExtra("id", item.getID());
+            intent.putExtra("name", item.getName());
+            intent.putExtra("desc", item.getDesc());
+            intent.putExtra("picture", item.getPicture());
+            saveManager.loadState();
+            player = saveManager.getPlayer();
+            int itemCount = player.getItems().get(item);
+            intent.putExtra("count", itemCount);
+            startActivity(intent);
         }
     }
 

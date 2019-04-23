@@ -43,12 +43,12 @@ public class SaveManager implements Serializable {
     public void saveState(Digimon digimon, Player player) {
         FileOutputStream outStream = null;
         try {
-            File digimonSaveFile = new File(Environment.getExternalStorageDirectory(), "/digimon.dat");
+            File digimonSaveFile = new File(Environment.getExternalStorageDirectory(), "/idle_digimon.dat");
             outStream = new FileOutputStream(digimonSaveFile);
             ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
             objectOutStream.writeObject(digimon);
             objectOutStream.close();
-            File playerSaveFile = new File(Environment.getExternalStorageDirectory(), "/player.dat");
+            File playerSaveFile = new File(Environment.getExternalStorageDirectory(), "/idle_player.dat");
             outStream = new FileOutputStream(playerSaveFile);
             objectOutStream = new ObjectOutputStream(outStream);
             objectOutStream.writeObject(player);
@@ -63,7 +63,7 @@ public class SaveManager implements Serializable {
     public void saveState(Digimon digimon) {
         FileOutputStream outStream = null;
         try {
-            File digimonSaveFile = new File(Environment.getExternalStorageDirectory(), "/digimon.dat");
+            File digimonSaveFile = new File(Environment.getExternalStorageDirectory(), "/idle_digimon.dat");
             outStream = new FileOutputStream(digimonSaveFile);
             ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
             objectOutStream.writeObject(digimon);
@@ -81,12 +81,12 @@ public class SaveManager implements Serializable {
         Player loadPlayer = null;
         FileInputStream inStream = null;
         try {
-            File digimonLoadFile = new File(Environment.getExternalStorageDirectory(), "/digimon.dat");
+            File digimonLoadFile = new File(Environment.getExternalStorageDirectory(), "/idle_digimon.dat");
             inStream = new FileInputStream(digimonLoadFile);
             ObjectInputStream objectInStream = new ObjectInputStream(inStream);
             loadDigimon = ((Digimon) objectInStream.readObject());
             objectInStream.close();
-            File playerLoadFile = new File(Environment.getExternalStorageDirectory(), "/player.dat");
+            File playerLoadFile = new File(Environment.getExternalStorageDirectory(), "/idle_player.dat");
             inStream = new FileInputStream(playerLoadFile);
             objectInStream = new ObjectInputStream(inStream);
             loadPlayer = ((Player) objectInStream.readObject());

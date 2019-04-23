@@ -9,7 +9,6 @@ public abstract class Item implements Serializable {
 
     String id = "0";
     String name = "Untitled Item";
-    int picture = R.drawable.ch_9999;
     String desc = "No description available.";
 
     @Override
@@ -35,7 +34,7 @@ public abstract class Item implements Serializable {
     }
 
     public int getPicture() {
-        return picture;
+        return R.drawable.ch_9999;
     }
 
     public String getDesc() {

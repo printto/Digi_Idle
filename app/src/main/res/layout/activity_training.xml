@@ -36,7 +36,7 @@
             android:id="@+id/stepCountView"
             android:layout_width="120dp"
             android:layout_height="100dp"
-            android:background="@drawable/heartratebox1"
+            android:background="@drawable/heartratebox"
             android:paddingTop="18dp"
             android:text="0\nStep"
             android:textAlignment="center"
