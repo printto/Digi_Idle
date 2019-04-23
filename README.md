@@ -4,7 +4,8 @@ Digivice-like pet game
 ### Current Features
 - Create and load save
 - Digivolve system
-- Inventory system
+- Inventory system (usable items)
+- Fullness and aging system.
 - [Debug] Save editor enabled for testing sprites and new Digimons
 
 ### Screenshot (First look)
@@ -14,6 +15,10 @@ UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon 
 
 ### YouTube concept video
 [![Concept Video](https://img.youtube.com/vi/cUI3_9q2O8w/0.jpg)](https://www.youtube.com/watch?v=cUI3_9q2O8w)
+
+### V1.2 Changes
+- Working inventory and items system.
+- The pet now gets hungry from time to time
 
 ### V1.1 Changes
 - All 4 buttons at the bottom of the screen now working and lead to a new activity.
@@ -28,7 +33,4 @@ UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon 
 - No changes at the moment. Initial commit.
 
 ### TODO
-- (Current TODO) Implement envolve system
-- Implement leveling and up stats system
-- Implement feeding system and food
-- Implement training and battle system (May use Pedrometer as a part of the battle)
+- Implement training, farming and battling system (Use Pedrometer as a power guage of all modes)
