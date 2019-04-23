@@ -33,4 +33,6 @@ UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon 
 - No changes at the moment. Initial commit.
 
 ### TODO
+- Implement energy system.
+- Implement usable item system.
 - Implement training, farming and battling system (Use Pedrometer as a power guage of all modes)
