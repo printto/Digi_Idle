@@ -299,6 +299,14 @@ public abstract class Digimon implements Serializable {
         initializeInformationsOnCreate();
     }
 
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
     // ==== These are for debugging ====
 
     public void maxAge(){

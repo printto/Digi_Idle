@@ -84,7 +84,10 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
     }
 
     public void onUpStatClicked(View view) {
-        //TODO Player can use points from training to up the status
+        Intent intent = new Intent(this, UpStatActivity.class);
+        startActivity(intent);
+        this.finish();
+        overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
     }
 
     @Override
