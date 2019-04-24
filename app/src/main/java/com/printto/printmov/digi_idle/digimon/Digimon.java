@@ -26,10 +26,10 @@ public abstract class Digimon implements Serializable {
     int hp = 5;
     int maxHp = 5;
     int maxFullness = 60;
-    int maxEnergy = 10;
+    int maxEnergy = 1000;
 
     int fullness = 60;
-    int energy = 10;
+    int energy = 1000;
     int mood = 10;
 
     boolean isSick = false;
@@ -305,6 +305,54 @@ public abstract class Digimon implements Serializable {
 
     public void setDefense(int defense) {
         this.defense = defense;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
+
+    public void setMaxFullness(int maxFullness) {
+        this.maxFullness = maxFullness;
+    }
+
+    public void setMaxEnergy(int maxEnergy) {
+        this.maxEnergy = maxEnergy;
+    }
+
+    public void setFullness(int fullness) {
+        this.fullness = fullness;
+    }
+
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+
+    public void setMood(int mood) {
+        this.mood = mood;
+    }
+
+    public void setSick(boolean sick) {
+        isSick = sick;
+    }
+
+    public void setSleeping(boolean sleeping) {
+        isSleeping = sleeping;
+    }
+
+    public void setDied(boolean died) {
+        isDied = died;
+    }
+
+    public void setLastFeed(Date lastFeed) {
+        this.lastFeed = lastFeed;
+    }
+
+    public void setLastEnergized(Date lastEnergized) {
+        this.lastEnergized = lastEnergized;
     }
 
     // ==== These are for debugging ====

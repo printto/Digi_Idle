@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -93,7 +94,7 @@ public class TrainingActivity extends AppCompatActivity implements SensorEventLi
     private void initStatus() {
         saveManager.loadState();
         player = saveManager.getPlayer();
-        statusText.setText("Level: "+player.getLevel()+"\nEXP: "+player.getExp()+" / "+ LevelExpCap.getCap(player.getLevel()) +"\nPoints: "+player.getPoints());
+        statusText.setText("Level: "+player.getLevel()+"\nEXP: "+player.getExp()+" / "+ LevelExpCap.getCap(player.getLevel()) +"\nPoints: "+player.getPoints()+"\nEnergy: "+digimon.getEnergy()+"/"+digimon.getMaxEnergy());
     }
 
     private void initSensor() {
@@ -120,21 +121,30 @@ public class TrainingActivity extends AppCompatActivity implements SensorEventLi
 
     @Override
     public void step(long timeNs) {
-        countText.setText(++numSteps+"\nStep");
-        if(numSteps > 1){
-            countText.setText(numSteps+"\nSteps");
-        }
-        if(numSteps % 10 == 0){
-            player.setExp(player.getExp() + 1);
-            if(player.getExp() >= LevelExpCap.getCap(player.getLevel())){
-                player.setLevel(player.getLevel() + 1);
-                player.setExp(0);
-                player.setPoints(player.getPoints() + 10);
+        if(digimon.getEnergy() > 0) {
+            countText.setText(++numSteps + "\nStep");
+            if (numSteps > 1) {
+                countText.setText(numSteps + "\nSteps");
             }
-            saveManager.saveState(digimon, player);
+            if (numSteps % 10 == 0) {
+                player.setExp(player.getExp() + 1);
+                if (player.getExp() >= LevelExpCap.getCap(player.getLevel())) {
+                    player.setLevel(player.getLevel() + 1);
+                    player.setExp(0);
+                    player.setPoints(player.getPoints() + 10);
+                }
+                saveManager.saveState(digimon, player);
+            }
+            digimon.setEnergy(digimon.getEnergy() - 1);
+            saveManager.saveState(digimon);
+            saveManager.loadState();
             initStatus();
         }
-        //TODO Reduce the energy somehow
+        if(digimon.getEnergy() <= 0){
+            String first = "Level: "+player.getLevel()+"<br/>EXP: "+player.getExp()+" / "+ LevelExpCap.getCap(player.getLevel()) +"<br/>Points: "+player.getPoints();
+            String next = "<br/><font color='#EE0000'>Energy: "+digimon.getEnergy()+" / "+digimon.getMaxEnergy()+"</font>";
+            statusText.setText(Html.fromHtml(first + next));
+        }
     }
 
     @Override
