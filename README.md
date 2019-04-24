@@ -6,6 +6,7 @@ Digivice-like pet game
 - Digivolve system
 - Inventory system (usable items)
 - Fullness and aging system.
+- Training and up status system
 - [Debug] Save editor enabled for testing sprites and new Digimons
 
 ### Screenshot (First look)
