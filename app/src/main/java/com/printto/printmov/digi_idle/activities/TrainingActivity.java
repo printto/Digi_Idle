@@ -23,6 +23,7 @@ import com.printto.printmov.digi_idle.utils.SaveManager;
 import com.printto.printmov.digi_idle.values.DigimonForms;
 import com.printto.printmov.digi_idle.values.LevelExpCap;
 
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -89,11 +90,19 @@ public class TrainingActivity extends AppCompatActivity implements SensorEventLi
 
         initStatus();
 
+        if(digimon.getEnergy() <= 0){
+            String first = "Level: "+player.getLevel()+"<br/>EXP: "+player.getExp()+" / "+ LevelExpCap.getCap(player.getLevel()) +"<br/>Points: "+player.getPoints();
+            String next = "<br/><font color='#EE0000'>Energy: "+digimon.getEnergy()+" / "+digimon.getMaxEnergy()+"</font>";
+            initStatus();
+            statusText.setText(Html.fromHtml(first + next));
+        }
+
     }
 
     private void initStatus() {
         saveManager.loadState();
         player = saveManager.getPlayer();
+        digimon = saveManager.getDigimon();
         statusText.setText("Level: "+player.getLevel()+"\nEXP: "+player.getExp()+" / "+ LevelExpCap.getCap(player.getLevel()) +"\nPoints: "+player.getPoints()+"\nEnergy: "+digimon.getEnergy()+"/"+digimon.getMaxEnergy());
     }
 
@@ -136,13 +145,14 @@ public class TrainingActivity extends AppCompatActivity implements SensorEventLi
                 saveManager.saveState(digimon, player);
             }
             digimon.setEnergy(digimon.getEnergy() - 1);
+            digimon.setLastEnergized(new Date());
             saveManager.saveState(digimon);
-            saveManager.loadState();
             initStatus();
         }
         if(digimon.getEnergy() <= 0){
             String first = "Level: "+player.getLevel()+"<br/>EXP: "+player.getExp()+" / "+ LevelExpCap.getCap(player.getLevel()) +"<br/>Points: "+player.getPoints();
             String next = "<br/><font color='#EE0000'>Energy: "+digimon.getEnergy()+" / "+digimon.getMaxEnergy()+"</font>";
+            initStatus();
             statusText.setText(Html.fromHtml(first + next));
         }
     }

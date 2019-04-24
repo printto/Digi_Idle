@@ -17,17 +17,21 @@ public class UpStatActivity extends AppCompatActivity {
     int points = 0;
     int defense = 0;
     int attack = 0;
+    int maxEnergy = 0;
     Player player;
     Digimon digimon;
 
     TextView pointsText;
     TextView attackText;
     TextView defenseText;
+    TextView energyText;
 
     Button plusAttack;
     Button minusAttack;
     Button plusDefense;
     Button minusDefense;
+    Button plusEnergy;
+    Button minusEnergy;
 
     SaveManager saveManager = new SaveManager();
 
@@ -42,14 +46,18 @@ public class UpStatActivity extends AppCompatActivity {
         points = player.getPoints();
         attack = digimon.getAttack();
         defense = digimon.getDefense();
+        maxEnergy = digimon.getMaxEnergy();
 
         pointsText = findViewById(R.id.pointsText);
         attackText = findViewById(R.id.attackText);
         defenseText = findViewById(R.id.defenseText);
+        energyText = findViewById(R.id.energyText);
         plusAttack = findViewById(R.id.plusAttack);
         minusAttack = findViewById(R.id.minusAttack);
         plusDefense = findViewById(R.id.plusDefense);
         minusDefense = findViewById(R.id.minusDefense);
+        plusEnergy = findViewById(R.id.plusEnergy);
+        minusEnergy = findViewById(R.id.minusEnergy);
 
         updateStatus();
     }
@@ -58,19 +66,26 @@ public class UpStatActivity extends AppCompatActivity {
         pointsText.setText(points + "");
         attackText.setText(attack + "/" + digimon.getAttack());
         defenseText.setText(defense + "/" + digimon.getDefense());
+        energyText.setText(maxEnergy + "/" + digimon.getMaxEnergy());
         plusAttack.setBackgroundResource(R.drawable.btn2);
         plusDefense.setBackgroundResource(R.drawable.btn2);
         minusAttack.setBackgroundResource(R.drawable.btn2);
         minusDefense.setBackgroundResource(R.drawable.btn2);
+        plusEnergy.setBackgroundResource(R.drawable.btn2);
+        minusEnergy.setBackgroundResource(R.drawable.btn2);
         if(points <= 0){
             plusAttack.setBackgroundResource(R.drawable.btn4);
             plusDefense.setBackgroundResource(R.drawable.btn4);
+            plusEnergy.setBackgroundResource(R.drawable.btn4);
         }
         if(attack <= digimon.getAttack()){
             minusAttack.setBackgroundResource(R.drawable.btn4);
         }
         if(defense <= digimon.getDefense()){
             minusDefense.setBackgroundResource(R.drawable.btn4);
+        }
+        if(maxEnergy <= digimon.getMaxEnergy()){
+            minusEnergy.setBackgroundResource(R.drawable.btn4);
         }
     }
 
@@ -106,16 +121,34 @@ public class UpStatActivity extends AppCompatActivity {
         }
     }
 
+    public void upEnergy(View view){
+        if(points > 0) {
+            maxEnergy += 100;
+            points--;
+            updateStatus();
+        }
+    }
+
+    public void downEnergy(View view){
+        if(maxEnergy > digimon.getMaxEnergy()) {
+            maxEnergy -= 100;
+            points++;
+            updateStatus();
+        }
+    }
+
     public void onResetBtnClicked(View view){
         points = player.getPoints();
         attack = digimon.getAttack();
         defense = digimon.getDefense();
+        maxEnergy = digimon.getMaxEnergy();
         updateStatus();
     }
 
     public void onConfirmBtnClicked(View view){
         digimon.setAttack(attack);
         digimon.setDefense(defense);
+        digimon.setMaxEnergy(maxEnergy);
         player.setPoints(points);
         saveManager.saveState(digimon, player);
         saveManager.loadState();

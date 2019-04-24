@@ -49,8 +49,6 @@ public abstract class Digimon implements Serializable {
 
     DigimonViewController activity;
 
-    SaveManager saveManager = new SaveManager();
-
     protected Digimon(){
         lastFeed = new Date();
         lastEnergized = new Date();
@@ -245,7 +243,19 @@ public abstract class Digimon implements Serializable {
     }
 
     public int getEnergy() {
-        return energy;
+        if(energy >= maxEnergy){
+            return energy;
+        }
+        else{
+            Date currentTime = new Date();
+            int newEnergy = (int)( currentTime.getTime() - lastEnergized.getTime())/30000;
+            int temp = energy + newEnergy;
+            if(temp >= maxEnergy){
+                temp = maxEnergy;
+                energy = maxEnergy;
+            }
+            return (int) temp;
+        }
     }
 
     public int getHp() {

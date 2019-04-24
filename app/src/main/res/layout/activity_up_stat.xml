@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgblue2"
+    android:background="@drawable/glowinput"
     tools:context=".activities.UpStatActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="0"
         android:textAlignment="center"
@@ -36,123 +36,221 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pointsText" />
 
-    <Button
-        android:id="@+id/minusAttack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/btn2"
-        android:onClick="downAttack"
-        android:text="-"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <Button
-        android:id="@+id/plusAttack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="100dp"
-        android:background="@drawable/btn2"
-        android:onClick="upAttack"
-        android:text="+"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/attackText"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/btn3"
-        android:gravity="center"
-        android:text="0/0"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/plusAttack"
-        app:layout_constraintEnd_toStartOf="@+id/plusAttack"
-        app:layout_constraintStart_toEndOf="@+id/minusAttack"
-        app:layout_constraintTop_toTopOf="@+id/plusAttack" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="8dp"
-        android:text="Attack"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <Button
-        android:id="@+id/minusDefense"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/btn2"
-        android:onClick="downDefense"
-        android:text="-"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <Button
-        android:id="@+id/plusDefense"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="100dp"
-        android:background="@drawable/btn2"
-        android:onClick="upDefense"
-        android:text="+"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:text="Defense"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bgblue2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attackText" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-    <TextView
-        android:id="@+id/defenseText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/btn3"
-        android:gravity="center"
-        android:text="0/0"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/plusDefense"
-        app:layout_constraintEnd_toStartOf="@+id/plusAttack"
-        app:layout_constraintStart_toEndOf="@+id/minusAttack"
-        app:layout_constraintTop_toTopOf="@+id/plusDefense" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Attack"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/attackText"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/btn3"
+                    android:gravity="center"
+                    android:text="0/0"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/plusAttack"
+                    app:layout_constraintEnd_toStartOf="@+id/plusAttack"
+                    app:layout_constraintStart_toEndOf="@+id/minusAttack"
+                    app:layout_constraintTop_toTopOf="@+id/plusAttack" />
+
+                <Button
+                    android:id="@+id/minusAttack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/btn2"
+                    android:onClick="downAttack"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+                <Button
+                    android:id="@+id/plusAttack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/btn2"
+                    android:onClick="upAttack"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/minusDefense"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/btn2"
+                    android:onClick="downDefense"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+                <TextView
+                    android:id="@+id/defenseText"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/btn3"
+                    android:gravity="center"
+                    android:text="0/0"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/plusDefense"
+                    app:layout_constraintEnd_toStartOf="@+id/plusDefense"
+                    app:layout_constraintStart_toEndOf="@+id/minusDefense"
+                    app:layout_constraintTop_toTopOf="@+id/plusDefense" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Defense"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/plusDefense"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/btn2"
+                    android:onClick="upDefense"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/minusEnergy"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/btn2"
+                    android:onClick="downEnergy"
+                    android:text="-"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                <TextView
+                    android:id="@+id/energyText"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/btn3"
+                    android:gravity="center"
+                    android:text="0/0"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/plusEnergy"
+                    app:layout_constraintEnd_toStartOf="@+id/plusEnergy"
+                    app:layout_constraintStart_toEndOf="@+id/minusEnergy"
+                    app:layout_constraintTop_toTopOf="@+id/plusEnergy" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Max Energy"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/plusEnergy"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/btn2"
+                    android:onClick="upEnergy"
+                    android:text="+"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
+        android:id="@+id/linearLayout10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

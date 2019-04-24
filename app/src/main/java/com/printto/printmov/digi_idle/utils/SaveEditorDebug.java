@@ -55,6 +55,7 @@ public class SaveEditorDebug extends AppCompatActivity {
         EditText maxEnergy = findViewById(R.id.maxEnergy);
         EditText level = findViewById(R.id.level);
         EditText exp = findViewById(R.id.exp);
+        EditText points = findViewById(R.id.points);
 
         int atkInt = Integer.parseInt(atk.getText().toString());
         int defInt = Integer.parseInt(def.getText().toString());
@@ -66,10 +67,12 @@ public class SaveEditorDebug extends AppCompatActivity {
         int maxHpInt = Integer.parseInt(maxHp.getText().toString());
         int levelInt = Integer.parseInt(level.getText().toString());
         int expInt = Integer.parseInt(exp.getText().toString());
+        int pointsInt = Integer.parseInt(points.getText().toString());
 
         Player player = new Player(name.getText().toString());
         player.setExp(levelInt);
         player.setLevel(expInt);
+        player.setPoints(pointsInt);
 
         Digimon digimon = DigimonFactory.findDigimonByName(digimonName.getText().toString());
         digimon.setStatus(atkInt, defInt, maxHpInt, maxEnergyInt, maxFullnessInt, new Date(), new Date(), new Date());
