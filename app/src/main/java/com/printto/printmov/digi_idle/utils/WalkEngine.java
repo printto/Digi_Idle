@@ -10,6 +10,8 @@ import java.util.TimerTask;
 
 public class WalkEngine {
 
+    int DURATION = 3290;
+
     Digimon digimon;
     Timer timer;
     Random random = new Random();
@@ -27,7 +29,7 @@ public class WalkEngine {
                 digimon.renderAnimation(randomedMode);
                 digimon.generateWalk(randomedMode);
             }
-        },0,3000);
+        },0,DURATION);
     }
 
     public void randomPoses(){
@@ -37,11 +39,14 @@ public class WalkEngine {
                 int randomedMode = random.nextInt(digimon.getModeCount());
                 digimon.renderAnimation(randomedMode);
             }
-        },0,3000);
+        },0,DURATION);
     }
 
     public void stop(){
         timer.cancel();
     }
 
+    public int getDuration() {
+        return DURATION;
+    }
 }

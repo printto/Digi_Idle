@@ -20,6 +20,8 @@ import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.utils.SaveManager;
 import com.printto.printmov.digi_idle.utils.WalkEngine;
 
+import java.io.Serializable;
+
 public class StatusActivity extends AppCompatActivity implements DigimonViewController {
 
     Digimon digimon;
@@ -44,7 +46,7 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
         digimon.initializeWalkingArea(this, sizeX,10);
         setTitle(player.getName() + "'s Status");
 
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.textView99);
         walker = findViewById(R.id.walker);
 
         textView.setMovementMethod(new ScrollingMovementMethod());
@@ -96,7 +98,7 @@ public class StatusActivity extends AppCompatActivity implements DigimonViewCont
         ObjectAnimator animatorY = ObjectAnimator.ofFloat(walker, "translationY", toWalkY);
         final AnimatorSet animSet = new AnimatorSet();
         animSet.playTogether(animatorX, animatorY);
-        animSet.setDuration(2950);
+        animSet.setDuration(walkEngine.getDuration() - 10);
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override public void run() {
                 animSet.start();

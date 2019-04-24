@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         ObjectAnimator animatorY = ObjectAnimator.ofFloat(walker, "translationY", toWalkY);
         final AnimatorSet animSet = new AnimatorSet();
         animSet.playTogether(animatorX, animatorY);
-        animSet.setDuration(2990);
+        animSet.setDuration(walkEngine.getDuration() - 10);
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
