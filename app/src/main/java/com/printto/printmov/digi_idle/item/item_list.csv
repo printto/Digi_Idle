@@ -1,5 +1,19 @@
 ID,type,name,desc
+
+//Debugging
 999A,Food,DebugA,Test increase attack food
-0001,Food,Meat,Restore fullness +10
-0002,Food,Drug,Restore HP +5
-0003,Food,Cola,Energy +5
+
+//Set 1 Amida Forest Day
+0001,Food,Meat,Restore fullness +5
+0002,Food,Drug,Restore HP +1
+0003,Food,Orange Juice,Energy +5
+
+//Set 2 Amida Forest Evening
+0004,Food,Banana,Restore fullness +5
+0005,Food,Vaccine,Restore HP +1
+0006,Food,Green Candy,Energy +5
+
+//Set 3 Amida Forest Night
+0007,Food,Midnight Ramen,Restore fullness +5
+0008,Food,Heal Sand,Restore HP +1
+0009,Food,White Leaf,Energy +5

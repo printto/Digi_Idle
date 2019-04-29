@@ -13,35 +13,27 @@ import android.widget.TextView
 import com.printto.printmov.digi_idle.R
 import com.printto.printmov.digi_idle.digimon.Digimon
 import com.printto.printmov.digi_idle.factory.DigimonFactory
+import com.printto.printmov.digi_idle.farmmap.FarmMap
 import com.printto.printmov.digi_idle.utils.SaveManager
 import java.util.*
 
-class DigimonArrayAdapterKotlin(var context: Context, var rowItems: ArrayList<Digimon>) : BaseAdapter() {
+class MapArrayAdapterKotlin(var context: Context, var rowItems: ArrayList<FarmMap>) : BaseAdapter() {
 
-    var saveManager: SaveManager = SaveManager()
+//    var saveManager: SaveManager = SaveManager()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var holder: ViewHolder? = null
         var convertView = convertView
         val mInflater = context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        convertView = mInflater.inflate(R.layout.item_digivolve, parent, false)
+        convertView = mInflater.inflate(R.layout.item_farmmap, parent, false)
         holder = ViewHolder()
-        holder.digimon_image = convertView.findViewById(R.id.digimon_image) as ImageView
-        holder.digimon_name = convertView.findViewById(R.id.digimon_name) as TextView
-        holder.availability = convertView.findViewById(R.id.availability) as TextView
-        holder.d_image = convertView.findViewById(R.id.d_image) as ImageView
+        holder.map_image = convertView.findViewById(R.id.map_image) as ImageView
+        holder.map_name = convertView.findViewById(R.id.map_name) as TextView
+        holder.map_desc = convertView.findViewById(R.id.desc_text) as TextView
         val row_pos = rowItems.get(position)
-        val drawable = AppCompatResources.getDrawable(context, row_pos.profilePic )
-        holder.digimon_image!!.setImageDrawable(drawable)
-        holder.digimon_name!!.setText(row_pos.name)
-        holder.availability!!.setText(DigimonFactory.getRequirementString(row_pos.getName()));
-        saveManager.loadState()
-        if(DigimonFactory.checkDigivolve(saveManager.getPlayer(), saveManager.getDigimon(), row_pos.getName())){
-            holder.d_image!!.setImageResource(R.drawable.ggold)
-        }
-        else{
-            holder.d_image!!.setImageResource(R.drawable.gred)
-        }
+        holder.map_image!!.setImageResource(row_pos.getBackgroundResource())
+        holder.map_name!!.setText(row_pos.getMapName())
+        holder.map_desc!!.setText(row_pos.getDescription())
         convertView.tag = holder
         return convertView
     }
@@ -59,10 +51,9 @@ class DigimonArrayAdapterKotlin(var context: Context, var rowItems: ArrayList<Di
     }
 
     private inner class ViewHolder {
-        internal var digimon_image: ImageView? = null
-        internal var digimon_name: TextView? = null
-        internal var availability: TextView? = null
-        internal var d_image: ImageView? = null
+        internal var map_image: ImageView? = null
+        internal var map_name: TextView? = null
+        internal var map_desc: TextView? = null
     }
 
     private inner class Drawer {

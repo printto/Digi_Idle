@@ -59,5 +59,13 @@ public class WorldMapActivity extends AppCompatActivity {
             }
         });
 
+        huntMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(thisActivity,MapSelectActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

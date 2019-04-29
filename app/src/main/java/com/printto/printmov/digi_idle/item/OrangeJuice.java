@@ -2,13 +2,13 @@ package com.printto.printmov.digi_idle.item;
 
 import com.printto.printmov.digi_idle.R;
 
-public class Cola extends Food {
+public class OrangeJuice extends Food {
 
-    public Cola(){
+    public OrangeJuice(){
         id = "0003";
-        name = "Soda";
+        name = "Orange Juice";
         energy = 5;
-        desc = "A sweetened, carbonated soft drink flavored with vanilla, cinnamon, citrus oils and other flavorings.\n\nRefill energy by 5";
+        desc = "Liquid extract of the Digi-Orange tree fruit, produced by squeezing Digi-Oranges.\n\nRefill energy by 5";
     }
 
     @Override

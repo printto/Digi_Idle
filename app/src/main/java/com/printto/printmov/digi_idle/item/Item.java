@@ -41,4 +41,9 @@ public abstract class Item implements Serializable {
         return desc;
     }
 
+    @Override
+    public String toString(){
+        return name;
+    }
+
 }

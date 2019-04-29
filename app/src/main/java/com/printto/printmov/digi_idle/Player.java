@@ -1,14 +1,11 @@
 package com.printto.printmov.digi_idle;
 
-import com.printto.printmov.digi_idle.digimon.Digimon;
-import com.printto.printmov.digi_idle.item.Cola;
+import com.printto.printmov.digi_idle.item.OrangeJuice;
 import com.printto.printmov.digi_idle.item.Drug;
-import com.printto.printmov.digi_idle.item.Food;
 import com.printto.printmov.digi_idle.item.Item;
 import com.printto.printmov.digi_idle.item.Meat;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +22,7 @@ public class Player implements Serializable {
         this.name = name;
         items.put(new Meat(), -1);
         items.put(new Drug(), 5);
-        items.put(new Cola(), 5);
+        items.put(new OrangeJuice(), 5);
     }
 
     public String getName() {
@@ -75,6 +72,19 @@ public class Player implements Serializable {
         else{
             items.put(item, items.get(item) + 1);
         }
+    }
+
+    public void addItem(Item item, int amount){
+        if(!items.containsKey(item)){
+            items.put(item, amount);
+        }
+        else{
+            items.put(item, items.get(item) + amount);
+        }
+    }
+
+    public void addUnlimitedItem(Item item){
+        items.put(item, -1);
     }
 
     public void removeItem(Item item){

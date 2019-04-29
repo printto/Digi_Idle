@@ -6,9 +6,9 @@ public class Meat extends Food {
 
     public Meat(){
         id = "0001";
-        name = "Meat";
-        fullness = 10;
-        desc = "A piece of meat harvested from Digi-meat plant.\n\nFill up by 10";
+        name = "Digi-Meat";
+        fullness = 5;
+        desc = "A piece of meat harvested from Digi-meat plant.\n\nFill up by 5";
     }
 
     @Override
