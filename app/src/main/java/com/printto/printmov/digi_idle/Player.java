@@ -20,9 +20,9 @@ public class Player implements Serializable {
 
     public Player(String name){
         this.name = name;
-        items.put(new Meat(), -1);
-        items.put(new Drug(), 5);
-        items.put(new OrangeJuice(), 5);
+        items.put(new Meat(), 3);
+        items.put(new Drug(), 3);
+        items.put(new OrangeJuice(), 3);
     }
 
     public String getName() {

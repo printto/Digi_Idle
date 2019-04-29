@@ -34,7 +34,6 @@ public abstract class Digimon implements Serializable {
 
     boolean isSick = false;
     boolean isSleeping = false;
-    boolean isDied = false;
 
     Date lastFeed;
     Date lastEnergized;
@@ -309,6 +308,13 @@ public abstract class Digimon implements Serializable {
         initializeInformationsOnCreate();
     }
 
+    public boolean isDied(){
+        if(getFullness() < 0){
+            return true;
+        }
+        return false;
+    }
+
     public void setAttack(int attack) {
         this.attack = attack;
     }
@@ -351,10 +357,6 @@ public abstract class Digimon implements Serializable {
 
     public void setSleeping(boolean sleeping) {
         isSleeping = sleeping;
-    }
-
-    public void setDied(boolean died) {
-        isDied = died;
     }
 
     public void setLastFeed(Date lastFeed) {
