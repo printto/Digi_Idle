@@ -309,7 +309,7 @@ public abstract class Digimon implements Serializable {
     }
 
     public boolean isDied(){
-        if(getFullness() < 0){
+        if(getFullness() <= 0){
             return true;
         }
         return false;

@@ -17,3 +17,6 @@ ID,type,name,desc
 0007,Food,Midnight Ramen,Restore fullness +5
 0008,Food,Heal Sand,Restore HP +1
 0009,Food,White Leaf,Energy +5
+
+//TODO
+0010,Usable,Food package,Get 3 of items id 0001-0009 randomly

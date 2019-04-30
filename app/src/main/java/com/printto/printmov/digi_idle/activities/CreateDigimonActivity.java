@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,19 @@ public class CreateDigimonActivity extends AppCompatActivity {
 
         saveManager = new SaveManager();
         nameInput = findViewById(R.id.editText);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("alert_title") && intent.hasExtra("alert_text")) {
+            String title = intent.getStringExtra("alert_title");
+            String message = intent.getStringExtra("alert_text");
+            new AlertDialog.Builder(CreateDigimonActivity.this)
+                    .setTitle(title)
+                    .setMessage(message)
+                    .setNegativeButton("Momentai~", null)
+                    .setIcon(R.drawable.ch_9999)
+                    .show();
+        }
+
     }
 
     private void confirmCreate(Digimon digimon) {

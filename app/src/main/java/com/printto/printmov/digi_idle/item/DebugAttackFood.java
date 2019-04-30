@@ -9,6 +9,7 @@ public class DebugAttackFood extends Food{
         name = "DebugA";
         desc = "Debug food for testing that increases your partner's strength. Duplicate this item's class source code to test other status.\n\nIncrease attack by 5";
         attack = 5;
+        this.successText = "Test success text";
     }
 
     @Override

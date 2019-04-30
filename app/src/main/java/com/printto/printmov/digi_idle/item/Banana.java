@@ -9,6 +9,7 @@ public class Banana extends Food {
         name = "Digi-Banana";
         fullness = 5;
         desc = "Digi-Banana harvested from digi-banana pond.\n\nFill up by 5";
+        successText = "Filled up by 5";
     }
 
     @Override

@@ -47,6 +47,7 @@ public class DigivolveSceneActivity extends AppCompatActivity {
         saveManager = new SaveManager();
         saveManager.loadState();
         digimon = saveManager.getDigimon();
+        player = saveManager.getPlayer();
 
         profilePic = findViewById(R.id.profilePic);
         profilePic.setImageResource(digimon.getProfilePic());
@@ -86,6 +87,9 @@ public class DigivolveSceneActivity extends AppCompatActivity {
         });
 
         nextDigimon = (Digimon) getIntent().getExtras().get("nextDigimon");
+        player.addDigimonToDex(nextDigimon);
+        saveManager.saveState(player);
+
         final DigivolveSceneActivity thisActivity = this;
 
         timer.scheduleAtFixedRate(new TimerTask(){

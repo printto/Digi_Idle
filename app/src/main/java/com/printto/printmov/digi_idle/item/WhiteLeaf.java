@@ -9,6 +9,7 @@ public class WhiteLeaf extends Food {
         name = "White Leaf";
         energy = 5;
         desc = "Huh? Where did I get this leaf from? I can't remember.\n\nRefill energy by 5";
+        successText = "Refilled energy by 5";
     }
 
     @Override

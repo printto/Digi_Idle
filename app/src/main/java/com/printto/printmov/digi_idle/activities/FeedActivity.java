@@ -2,6 +2,7 @@ package com.printto.printmov.digi_idle.activities;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.printto.printmov.digi_idle.Player;
@@ -19,8 +21,8 @@ import com.printto.printmov.digi_idle.adapters.FeedRecyclerViewAdapter;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.item.Food;
 import com.printto.printmov.digi_idle.item.Item;
+import com.printto.printmov.digi_idle.item.Usable;
 import com.printto.printmov.digi_idle.utils.SaveManager;
-import com.printto.printmov.digi_idle.utils.StepTestActivity;
 import com.printto.printmov.digi_idle.values.DigimonForms;
 
 import org.jetbrains.annotations.NotNull;
@@ -33,6 +35,8 @@ import java.util.TimerTask;
 public class FeedActivity extends AppCompatActivity {
 
     ImageView profilePic;
+    TextView resultText;
+
     Digimon digimon;
     Player player;
     SaveManager saveManager;
@@ -60,6 +64,7 @@ public class FeedActivity extends AppCompatActivity {
 
         profilePic = findViewById(R.id.profilePic);
         profilePic.setImageResource(digimon.getProfilePic());
+        resultText = findViewById(R.id.resultText);
 
         thisActivity = this;
 
@@ -106,18 +111,39 @@ public class FeedActivity extends AppCompatActivity {
         @Override
         public void onItemClick(int position, @NotNull View v) {
             Item item =  adapter.getItemFromPosition(position);
+//            resultText.setText(item.getSuccessText());
+//            CountDownTimer timer = new CountDownTimer(3000, 1000) {
+//                @Override
+//                public void onTick(long millisUntilFinished) {
+//                    resultText.setVisibility(View.VISIBLE);
+//                }
+//                @Override
+//                public void onFinish() {
+//                    resultText.setVisibility(View.INVISIBLE);
+//                }
+//            }.start();
             Log.d("Feed listener",item.getName() + " selected");
             if(item instanceof Food && digimon.getForm() != DigimonForms.EGG){
                 Food food = (Food) item;
                 digimon.feed(food);
-                player.removeItem(food);
+                player.useItem(food);
                 saveManager.saveState(digimon, player);
+                makeToast(food.getSuccessText());
+            }
+            else if(item instanceof Usable && digimon.getForm() != DigimonForms.EGG){
+                Usable usable = (Usable) item;
+                usable.use();
+                saveManager.loadState();
+                player = saveManager.getPlayer();
+                player.useItem(usable);
+                saveManager.saveState(digimon, player);
+                makeToast(usable.getSuccessText());
             }
             else if (digimon.getForm() == DigimonForms.EGG){
                 makeToast("Please hatch the egg first.");
             }
             else {
-                makeToast("This item is not edible.");
+                makeToast("This item is not usable.");
             }
             saveManager.loadState();
             player = saveManager.getPlayer();
@@ -140,6 +166,14 @@ public class FeedActivity extends AppCompatActivity {
             intent.putExtra("count", itemCount);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onBackPressed () {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        this.finish();
+        overridePendingTransition(R.anim.zoominfadein, R.anim.zoomoutfadeout);
     }
 
     @Override

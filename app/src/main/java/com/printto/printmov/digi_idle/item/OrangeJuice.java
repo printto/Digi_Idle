@@ -9,6 +9,7 @@ public class OrangeJuice extends Food {
         name = "Orange Juice";
         energy = 5;
         desc = "Liquid extract of the Digi-Orange tree fruit, produced by squeezing Digi-Oranges.\n\nRefill energy by 5";
+        successText = "Refilled energy by 5";
     }
 
     @Override

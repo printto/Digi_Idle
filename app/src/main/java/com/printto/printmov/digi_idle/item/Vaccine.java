@@ -9,6 +9,7 @@ public class Vaccine extends Food {
         name = "Vaccine";
         desc = "A program designed to detect computer viruses and inactivate them.\n\nRestores HP by 1 when used.";
         hp = 1;
+        successText = "Restored HP by 1";
     }
 
     @Override

@@ -17,11 +17,13 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.printto.printmov.digi_idle.Player;
 import com.printto.printmov.digi_idle.R;
 import com.printto.printmov.digi_idle.activities.CreateDigimonActivity;
 import com.printto.printmov.digi_idle.activities.DigimonViewController;
+import com.printto.printmov.digi_idle.activities.TrainingActivity;
 import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.item.Item;
 import com.printto.printmov.digi_idle.stepscounter.StepDetector;
@@ -91,6 +93,9 @@ public abstract class FarmMap extends AppCompatActivity implements DigimonViewCo
         countText = findViewById(R.id.stepCountView);
         statusText = findViewById(R.id.statusText);
         bg_image = findViewById(R.id.bg);
+
+        AnimationDrawable walkerAnimation = (AnimationDrawable) countText.getBackground();
+        walkerAnimation.start();
 
         statusText.setMovementMethod(new ScrollingMovementMethod());
 
@@ -220,10 +225,12 @@ public abstract class FarmMap extends AppCompatActivity implements DigimonViewCo
                     int randomedBalance = (int) (Math.random() * 1000);
                     player.setBalance(player.getBalance() + randomedBalance);
                     gotItems = "["+numSteps+"] Got "+randomedBalance+" Bits\n" + gotItems;
+                    Toast.makeText(this,"Got "+randomedBalance+" Bits",Toast.LENGTH_SHORT).show();
                 }
                 else {
                     player.addItem(getItemArray()[randomed]);
                     gotItems = "["+numSteps+"] Got 1 "+getItemArray()[randomed]+"\n" + gotItems;
+                    Toast.makeText(this,"Got 1 "+getItemArray()[randomed],Toast.LENGTH_SHORT).show();
                 }
                 saveManager.saveState(digimon, player);
                 newSteps = 0;
@@ -240,6 +247,12 @@ public abstract class FarmMap extends AppCompatActivity implements DigimonViewCo
             initStatus();
             statusText.setText(Html.fromHtml(next));
         }
+    }
+
+    @Override
+    public void finish(){
+        sensorManager.unregisterListener(FarmMap.this, accel);
+        super.finish();
     }
 
 }

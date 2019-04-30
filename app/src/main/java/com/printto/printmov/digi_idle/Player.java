@@ -1,12 +1,15 @@
 package com.printto.printmov.digi_idle;
 
+import com.printto.printmov.digi_idle.digimon.Digimon;
 import com.printto.printmov.digi_idle.item.OrangeJuice;
 import com.printto.printmov.digi_idle.item.Drug;
 import com.printto.printmov.digi_idle.item.Item;
 import com.printto.printmov.digi_idle.item.Meat;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Player implements Serializable {
@@ -17,6 +20,8 @@ public class Player implements Serializable {
     int balance = 0;
     Map<Item, Integer> items = new HashMap<Item, Integer>();
     int points = 0;
+    Digimon digimon;
+    List<Digimon> digimonDex = new ArrayList<Digimon>();
 
     public Player(String name){
         this.name = name;
@@ -87,7 +92,7 @@ public class Player implements Serializable {
         items.put(item, -1);
     }
 
-    public void removeItem(Item item){
+    public void useItem(Item item){
         if(items.get(item) == 1){
             items.remove(item);
         }
@@ -100,4 +105,19 @@ public class Player implements Serializable {
         return items;
     }
 
+    public Digimon getDigimon() {
+        return digimon;
+    }
+
+    public void setDigimon(Digimon digimon) {
+        this.digimon = digimon;
+    }
+
+    public void addDigimonToDex(Digimon addDigimon){
+        digimonDex.add(addDigimon);
+    }
+
+    public List<Digimon> getDigimonDex() {
+        return digimonDex;
+    }
 }

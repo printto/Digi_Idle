@@ -9,6 +9,7 @@ public class Meat extends Food {
         name = "Digi-Meat";
         fullness = 5;
         desc = "A piece of meat harvested from Digi-meat plant.\n\nFill up by 5";
+        successText = "Filled up by 5";
     }
 
     @Override

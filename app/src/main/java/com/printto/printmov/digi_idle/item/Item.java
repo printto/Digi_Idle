@@ -10,6 +10,7 @@ public abstract class Item implements Serializable {
     String id = "0";
     String name = "Untitled Item";
     String desc = "No description available.";
+    String successText = "";
 
     @Override
     public boolean equals(Object object){
@@ -39,6 +40,10 @@ public abstract class Item implements Serializable {
 
     public String getDesc() {
         return desc;
+    }
+
+    public String getSuccessText(){
+        return successText;
     }
 
     @Override

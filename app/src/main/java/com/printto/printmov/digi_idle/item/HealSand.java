@@ -9,6 +9,7 @@ public class HealSand extends Food {
         name = "Heal Sand";
         desc = "Magical sand from Amida Forest. The sand shines very bright at night.\n\nRestores HP by 1 when used.";
         hp = 1;
+        successText = "Restored HP by 1";
     }
 
     @Override

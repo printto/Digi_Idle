@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MapSelectActivity"></activity>
+        <activity android:name=".activities.DexActivity"></activity>
+        <activity android:name=".activities.MapSelectActivity" />
         <activity android:name=".activities.UpStatActivity" />
         <activity android:name=".activities.ItemInfoActivity" />
         <activity android:name=".activities.TrainingActivity" />
@@ -27,6 +28,7 @@
         <activity android:name=".farmmap.MapAmidaForestDay" />
         <activity android:name=".farmmap.MapAmidaForestEvening" />
         <activity android:name=".farmmap.MapAmidaForestNight" />
+        <activity android:name=".farmmap.MapCapCoalaDay" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

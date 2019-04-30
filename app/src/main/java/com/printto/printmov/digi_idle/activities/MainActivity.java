@@ -68,11 +68,21 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
             digimon.initializeWalkingArea(this, sizeX, sizeY);
             walkEngine = new WalkEngine(digimon);
             walkEngine.walk();
-        } else {
+        }else {
             Intent intent = new Intent(this, CreateDigimonActivity.class);
+            intent.putExtra("alert_title","Welcome to Digi-idle!");
+            intent.putExtra("alert_text","Please select your first egg!");
             startActivity(intent);
             finish();
         }
+        if(digimon.isDied()) {
+            Intent intent = new Intent(this, CreateDigimonActivity.class);
+            intent.putExtra("alert_title","Your partner died :(");
+            intent.putExtra("alert_text","Please take care of your partner next time.");
+            startActivity(intent);
+            finish();
+        }
+
     }
 
     public void statusBtnClicked(View view) {
@@ -85,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
     public void feedBtnClicked(View view) {
         Intent intent = new Intent(this, FeedActivity.class);
         startActivity(intent);
+        finish();
+        overridePendingTransition(R.anim.zoomoutfadein, R.anim.zoominfadeout);
     }
 
     public void fightBtnClicked(View view) {
@@ -97,18 +109,22 @@ public class MainActivity extends AppCompatActivity implements DigimonViewContro
         }
     }
 
+    //This button were changed from sleeping to Digimon Dex
     public void sleepBtnClicked(View view) {
-        isSleep = !isSleep;
-        if(isSleep){
-            sleepDark.setVisibility(View.VISIBLE);
-            sleepOverlay.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "Sleeping mode currently not working.\nNo effect applied.",Toast.LENGTH_SHORT).show();
-        }
-        else{
-            sleepDark.setVisibility(View.INVISIBLE);
-            sleepOverlay.setVisibility(View.INVISIBLE);
-        }
-        //TODO Stop everything and save sleeping state or change this button to something else
+//        isSleep = !isSleep;
+//        if(isSleep){
+//            sleepDark.setVisibility(View.VISIBLE);
+//            sleepOverlay.setVisibility(View.VISIBLE);
+//            Toast.makeText(this, "Sleeping mode currently not working.\nNo effect applied.",Toast.LENGTH_SHORT).show();
+//        }
+//        else{
+//            sleepDark.setVisibility(View.INVISIBLE);
+//            sleepOverlay.setVisibility(View.INVISIBLE);
+//        }
+        Intent intent = new Intent(this, DexActivity.class);
+        startActivity(intent);
+        finish();
+        overridePendingTransition(R.anim.zoomoutfadein, R.anim.zoominfadeout);
     }
 
     @Override

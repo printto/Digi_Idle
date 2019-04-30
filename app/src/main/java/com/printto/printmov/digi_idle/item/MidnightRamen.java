@@ -9,6 +9,7 @@ public class MidnightRamen extends Food {
         name = "Midnight Ramen";
         fullness = 5;
         desc = "Instant noodle imported from real-world's Thailand.\nPerfect for midnight meal either raw or cooked.\n\nFill up by 5";
+        successText = "Filled up by 5";
     }
 
     @Override

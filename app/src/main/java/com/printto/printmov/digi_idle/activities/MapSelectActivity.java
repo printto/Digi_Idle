@@ -14,6 +14,7 @@ import com.printto.printmov.digi_idle.farmmap.FarmMap;
 import com.printto.printmov.digi_idle.farmmap.MapAmidaForestDay;
 import com.printto.printmov.digi_idle.farmmap.MapAmidaForestEvening;
 import com.printto.printmov.digi_idle.farmmap.MapAmidaForestNight;
+import com.printto.printmov.digi_idle.farmmap.MapCapCoalaDay;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -71,6 +72,7 @@ public class MapSelectActivity extends AppCompatActivity {
 
     private void addDayMaps() {
         farmMaps.add(new MapAmidaForestDay());
+        farmMaps.add(new MapCapCoalaDay());
     }
 
     private void addEveningMaps() {

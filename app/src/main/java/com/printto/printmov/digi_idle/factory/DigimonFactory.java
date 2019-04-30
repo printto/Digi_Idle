@@ -126,7 +126,7 @@ public class DigimonFactory {
                 break;
 
             case "Metalgreymon":
-                requirement += "HP > 300";
+                requirement += "Defense > 1000\nor special item";
                 break;
 
             case "Terriermon":
@@ -188,7 +188,7 @@ public class DigimonFactory {
                 return player.getLevel() >= 10;
 
             case "Metalgreymon":
-                return digimon.getMaxHp() >= 300;
+                return digimon.getDefense() >= 1000;
 
             case "Terriermon":
                 break;
@@ -208,6 +208,7 @@ public class DigimonFactory {
         int maxFullness = digimon.getMaxFullness();
         temp.setStatus(attack, defense, maxHp, maxEnergy, maxFullness, lastFeed, lastEnergized, birth);
         SaveManager saveManager = new SaveManager();
+        saveManager.loadState();
         saveManager.saveState(temp);
     }
 
