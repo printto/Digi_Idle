@@ -37,3 +37,6 @@ UI Screenshot<br/>(Digi-Idle)             |  Walking Screenshot<br/>(Terriermon 
 - Implement energy system.
 - Implement usable item system.
 - Implement training, farming and battling system (Use Pedrometer as a power guage of all modes)
+
+## Wiki
+More information click [HERE](http://digi-idle.fandom.com)
